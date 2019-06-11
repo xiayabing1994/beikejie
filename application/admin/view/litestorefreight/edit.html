@@ -1,0 +1,103 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control form-control" name="row[name]" type="text" value="{$row.name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Method')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-method" data-rule="required" class="form-control selectpicker" name="row[method]">
+                {foreach name="methodList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.method"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-3 col-sm-2 control-label">
+            配送区域及运费
+        </label>
+        <div class="col-xs-12 col-sm-8 am-u-end">
+            <div class="am-scrollable-horizontal">
+                <table class="table table-bordered table-striped regional-table am-table-centered am-margin-bottom-xs" style="border:2px solid #d2d6de;">
+                    <tbody>
+                    <tr style="background-color: #ffffff;">
+                        <th width="42%">可配送区域</th>
+                        <th style="text-align: right;">
+                            <span class="first">{$row.method == 10 ? '首件 (个)' : '首重 (Kg)'}</span>
+                        </th>
+                        <th style="text-align: right;">运费 (元)</th>
+                        <th style="text-align: right;">
+                            <span class="additional">{$row.method == 10 ? '续件 (个)' : '续重 (Kg)'}</span>
+                        </th>
+                        <th style="text-align: right;">续费 (元)</th>
+                    </tr>
+                    {foreach name="row.rule" item="item"}
+                        <tr>
+                            <td class="am-text-left">
+                                <p class="selected-content am-margin-bottom-xs">
+                                    {$item['region_content']}
+                                </p>
+                                <p class="operation am-margin-bottom-xs">
+                                    <a class="edit" href="javascript:;">编辑</a>
+                                    <a class="delete" href="javascript:;">删除</a>
+                                </p>
+                                <input type="hidden" name="delivery[rule][region][]"
+                                       value="<?= $item['region'] ?>">
+                            </td>
+                            <td>
+                                <input type="number" name="delivery[rule][first][]"
+                                       value="<?= $item['first'] ?>" required>
+                            </td>
+                            <td>
+                                <input type="number" name="delivery[rule][first_fee][]"
+                                       value="<?= $item['first_fee'] ?>" required>
+                            </td>
+                            <td>
+                                <input type="number" name="delivery[rule][additional][]"
+                                       value="<?= $item['additional'] ?>">
+                            </td>
+                            <td>
+                                <input type="number" name="delivery[rule][additional_fee][]"
+                                       value="<?= $item['additional_fee'] ?>">
+                            </td>
+                        </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="5" class="am-text-left">
+                            <a class="add-region btn btn-success" href="javascript:;">
+                                <i class="fa fa-plus"></i>
+                                点击添加可配送区域和运费
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weigh')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weigh" data-rule="required" class="form-control form-control" name="row[weigh]" type="number" value="{$row.weigh}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+<link rel="stylesheet" href="__CDN__/assets/addons/litestore/css/litestorefeight.css">
+<div class="regional-choice"></div>
+<script>
+    // 初始化区域选择界面
+    var datas = JSON.parse('<?= $regionData ?>');
+</script>

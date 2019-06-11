@@ -1,0 +1,25 @@
+.footer-fixed {
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 46px;
+  z-index: 18;
+  box-shadow: 1px 5px 15px rgba(50, 50, 50, 0.3);
+  background: #fff;
+}
+.order-bt {
+  width: 50%;
+  background-color: #6d189e;
+  color: #fff;
+  text-align: center;
+  line-height: 46px;
+}
+.vc-re{
+  min-width: 20em;
+}
+.lotbuttun-c{
+  background-color:#6d189e!important;
+  border:0!important;
+}

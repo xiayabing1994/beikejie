@@ -1,0 +1,226 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Goods_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_name" data-rule="required" class="form-control form-control" name="row[goods_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Category_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-category_id" data-rule="required" data-source="litestorecategory/selectpage" class="form-control selectpage form-control" name="row[category_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Images')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-images" data-rule="required" class="form-control form-control" size="50" name="row[images]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-images" class="btn btn-danger plupload" data-input-id="c-images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="true" data-preview-id="p-images"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-images" class="btn btn-primary fachoose" data-input-id="c-images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-images"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-images"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Spec_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-spec_type" data-rule="required" class="form-control selectpicker" name="row[spec_type]">
+                {foreach name="specTypeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="10"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+<!-- 商品规格属性 start -->
+<div class="goods-spec-many form-group">
+    <!-- <label class="control-label col-xs-12 col-sm-2"></label>-->
+    <div class="goods-spec-box col-xs-12 col-sm-11" style="background-color: white;">
+        <!-- 规格属性 -->
+        <div class="spec-attr"></div>
+
+        <!-- 添加规格：按钮 -->
+        <div class="spec-group-button">
+            <button type="button" class="btn-addSpecGroup btn btn-xs btn-success">添加规格</button>
+        </div>
+
+        <!-- 添加规格：表单 -->
+        <div class="spec-group-add">
+            <div class="spec-group-add-item form-group">
+                <label class="control-label form-require">规格名 </label>
+                <input type="text" class="input-specName tpl-form-input"
+                       placeholder="请输入规格名称">
+            </div>
+            <div class="spec-group-add-item form-group">
+                <label class="control-label form-require">规格值 </label>
+                <input type="text" class="input-specValue tpl-form-input"
+                       placeholder="请输入规格值">
+            </div>
+            <div class="spec-group-add-item margin-top">
+                <button type="button" class="btn-addSpecName btn btn-xs btn-success"> 确定
+                </button>
+                <button type="button" class="btn-cancleAddSpecName btn btn-xs btn-default"> 取消
+                </button>
+            </div>
+        </div>
+        <!-- 商品多规格sku信息 -->
+        <div class="goods-sku scrollable-horizontal">
+            <!-- 分割线 -->
+            <div class="goods-spec-line"></div>
+            <!-- sku 批量设置 -->
+            <div class="spec-batch form-inline">
+                <div class="form-group">
+                    <label class="control-label">批量设置</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" data-type="goods_no" placeholder="商家编码">
+                </div>
+                <div class="form-group">
+                    <input type="number" data-type="goods_price" placeholder="销售价">
+                </div>
+                <div class="form-group">
+                    <input type="number" data-type="line_price" placeholder="划线价">
+                </div>
+                <div class="form-group">
+                    <input type="number" data-type="stock_num" placeholder="库存数量">
+                </div>
+                <div class="form-group">
+                    <input type="number" data-type="goods_weight" placeholder="重量">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-specBatchBtn btn btn-sm btn-secondary
+                     radius">确定
+                    </button>
+                </div>
+            </div>
+            <!-- sku table -->
+            <table class="spec-sku-tabel table table-bordered table-centered margin-bottom-xs text-nowrap"></table>
+        </div>
+    </div>
+</div>
+
+<div class="goods-spec-single">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">商品编码:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_no" class="form-control form-control" name="spec[goods_no]" type="text" value="">
+        </div>
+    </div>
+    <!--<div class="form-group">-->
+        <!--<label class="control-label col-xs-12 col-sm-2">商品价格:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="c-goods_price" data-rule="required" class="form-control form-control" name="spec[goods_price]" type="number" value="0">-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">所需积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_score" data-rule="required" class="form-control form-control" name="spec[goods_score]" type="number" value="0">
+        </div>
+    </div>
+    <input name="row[goods_type]" type="hidden" value="score">
+    <!--<div class="form-group">-->
+        <!--<label class="control-label col-xs-12 col-sm-2">商品划线价:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="c-line_price" class="form-control form-control" name="spec[line_price]" type="number" value="">-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">当前库存数量:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-stock_num" class="form-control form-control" name="spec[stock_num]" type="number" value="100">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">商品重量(Kg):</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_weight" class="form-control form-control" name="spec[goods_weight]" type="number" value="1">
+        </div>
+    </div>
+</div>
+<!-- 商品规格属性 end -->
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Deduct_stock_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-deduct_stock_type" data-rule="required" class="form-control selectpicker" name="row[deduct_stock_type]">
+                {foreach name="deductStockTypeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="20"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" data-rule="required" class="form-control editor form-control" rows="5" name="row[content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sales_initial')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sales_initial" data-rule="required" class="form-control form-control" name="row[sales_initial]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sales_actual')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sales_actual" data-rule="required" class="form-control form-control" name="row[sales_actual]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Goods_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goods_sort" data-rule="required" class="form-control form-control" name="row[goods_sort]" type="number" value="100">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Delivery_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-delivery_id" data-rule="required" data-source="litestorefreight/index" class="form-control selectpage form-control" name="row[delivery_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Goods_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="goodsStatusList" item="vo"}
+            <label for="row[goods_status]-{$key}"><input id="row[goods_status]-{$key}" name="row[goods_status]" type="radio" value="{$key}" {in name="key" value="10"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_delete')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_delete" data-rule="required" class="form-control selectpicker" name="row[is_delete]">
+                {foreach name="isDeleteList" item="vo"}
+                    <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+{include file="litestoregoods/spec_many_template" /}
+
+<link rel="stylesheet" href="__CDN__/assets/addons/litestore/css/litestoregoods.css">

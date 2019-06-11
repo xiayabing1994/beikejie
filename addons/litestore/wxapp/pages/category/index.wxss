@@ -1,0 +1,45 @@
+.cate-content {
+  font-size: 16px;
+  position: fixed;
+  top: 96rpx;
+  bottom: 5rpx;
+  width: 100%;
+  flex-direction:row;
+  display:flex;
+}
+.cate-left {
+  flex-direction: column;
+  color: #444;
+  height: 100%;
+  width: 218rpx;
+}
+
+.cate-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding-left: 20rpx;
+}
+.cate-right-cont {
+  width: 100%;
+  padding-top:10rpx;
+}
+.cate-cont-box {
+  margin-bottom: 30rpx;
+  padding-bottom: 10rpx;
+  overflow: hidden;
+}
+.cate-cont-box .cate-img image {
+  width: 100%;
+  height: 150rpx;
+}
+.cate-cont-box text {
+  text-align: center;
+  display: block;
+  font-size: 26rpx;
+  padding-bottom: 14rpx;
+  color: #444;
+  padding: 0 15rpx 30rpx 15rpx;
+}

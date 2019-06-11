@@ -1,0 +1,106 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.1",
+	"appid": "wx33ed37be3365e7f2",
+	"projectname": "FA%E6%8F%92%E4%BB%B6demo",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "商品浏览",
+					"pathName": "pages/goods/index",
+					"query": "goods_id=27"
+				},
+				{
+					"id": -1,
+					"name": "新闻",
+					"pathName": "pages/news/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "分类查找首页",
+					"pathName": "pages/category/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "分类查找列表",
+					"pathName": "pages/category/list",
+					"query": "cid=5&rename=0&name=手机"
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/index",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "订单确认",
+					"pathName": "pages/cart/checout",
+					"query": "type=cart"
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/adress/index",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "增加地址",
+					"pathName": "pages/adress/edit",
+					"query": "id=16"
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/order/index",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "订单详情",
+					"pathName": "pages/order/detail",
+					"query": "id=6"
+				}
+			]
+		}
+	}
+}

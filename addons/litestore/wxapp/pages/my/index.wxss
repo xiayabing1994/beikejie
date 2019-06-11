@@ -1,0 +1,48 @@
+.header {
+  height: 156px;
+  width:100%;
+  overflow: hidden;
+  background: #6d189e;
+  top:0;
+}
+
+.van-cell__left-icon-wrap,.van-cell__right-icon-wrap{
+  color: #6d189e!important;
+}
+.tag-c-c{
+  margin-left:0.58em;
+  padding-top:0.28em!important;
+}
+.header .avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  background: #fff;
+  margin: 15px auto;
+  border: 2px solid #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+.header .avatar image {
+  width: 100%;
+  height: 100%;
+}
+.header .account {
+  color: #fff;
+  text-align: center;
+}
+.showname{
+  font-size: 1.2em;
+}
+
+.title-footer .cont {
+  background-color:#f8f8f8;
+}
+.buttons_froup{
+  margin-top: 1em;
+}
+
+.title-footer{
+  margin-top:1em;
+}

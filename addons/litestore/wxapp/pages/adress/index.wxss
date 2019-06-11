@@ -1,0 +1,73 @@
+.vccb{
+  height:100%;
+  width:65px;
+  text-align:center;
+  font-size:1.2em;
+  color:white;
+  font-weight:bold;
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+}
+.delb{
+  background-color:#6d189e;
+}
+.morenb{
+  background-color:red;
+}
+
+.morenback{
+  background-color: rgb(249, 241, 250)!important;
+}
+.tagdef{
+  margin-left:6px;
+  top:-2px;
+  position:relative;
+}
+.ob-label{
+  font-size:12px;
+  line-height:1.2;
+  color:#666;
+}
+
+.title-class{
+  min-width:20em;
+}
+.footer-fixed {
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 46px;
+  z-index: 18;
+  box-shadow: 1px 5px 15px rgba(50, 50, 50, 0.3);
+  background: #fff;
+}
+.order-bt {
+  width: 50%;
+  background-color: #6d189e;
+  color: #fff;
+  text-align: center;
+  line-height: 46px;
+}
+
+.liteshop-notcont {
+  margin:130rpx 100rpx;
+}
+.liteshop-notcont .img {
+  width:200px;
+  height:120px;
+  margin:0 auto;
+}
+.liteshop-notcont .img image {
+  width: 100%;
+  height: 100%;
+}
+.liteshop-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6d189e;
+  margin-top: 10rpx;
+}

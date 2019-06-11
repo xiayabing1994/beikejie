@@ -1,0 +1,88 @@
+<van-tabs active="{{ active }}" custom-class="tab-margin" color="{{wxapp.BackgroundColor}}" bind:change="onChange">
+  <van-tab title="全部订单">
+    <van-cell-group custom-class="oneorder" wx:for="{{OrderList}}" wx:key="this" wx:for-index="idx">
+      <van-cell title="订单编号：{{item.order_no}}">
+       <van-tag slot="right-icon" type="{{item.showType}}">{{item.showText}}</van-tag>
+      </van-cell>
+      <van-cell is-link url="./detail?id={{item.id}}">
+        <view slot="title" class='tile_sp'>
+          <text wx:for="{{item.goods}}" wx:for-item="goodsitem" wx:key="key">
+            {{goodsitem.goods_name}} * {{goodsitem.total_num}} \n\r
+          </text>
+        </view>
+      </van-cell>
+      <van-cell title="合计:￥{{item.pay_price}}　数量: {{item.goods.length}}" label="{{item.creattime_text}}">
+        <view slot="right-icon">
+          <van-button size="small" data-id="{{item.id}}" custom-class="bt-zs" bind:click="bt_url">订单详情</van-button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-tab>
+
+  <van-tab title="未付款">
+    <van-cell-group custom-class="oneorder" wx:for="{{OrderList}}" wx:key="this" wx:for-index="idx" wx:if="{{item.showType=='danger'}}">
+      <van-cell title="订单编号：{{item.order_no}}">
+       <van-tag slot="right-icon" type="{{item.showType}}">{{item.showText}}</van-tag>
+      </van-cell>
+      <van-cell is-link url="./detail?id={{item.id}}">
+        <view slot="title" class='tile_sp'>
+          <text wx:for="{{item.goods}}" wx:for-item="goodsitem" wx:key="key">
+            {{goodsitem.goods_name}} * {{goodsitem.total_num}} \n\r
+          </text>
+        </view>
+      </van-cell>
+      <van-cell title="合计:￥{{item.pay_price}}　数量: {{item.goods.length}}" label="{{item.creattime_text}}">
+        <view slot="right-icon">
+          <van-button size="small" data-id="{{item.id}}" custom-class="bt-zs" bind:click="bt_url">订单详情</van-button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-tab>
+
+  <van-tab title="待发货">
+    <van-cell-group custom-class="oneorder" wx:for="{{OrderList}}" wx:key="this" wx:for-index="idx" wx:if="{{item.showType=='success'}}">
+      <van-cell title="订单编号：{{item.order_no}}">
+       <van-tag slot="right-icon" type="{{item.showType}}">{{item.showText}}</van-tag>
+      </van-cell>
+      <van-cell is-link url="./detail?id={{item.id}}">
+        <view slot="title" class='tile_sp'>
+          <text wx:for="{{item.goods}}" wx:for-item="goodsitem" wx:key="key">
+            {{goodsitem.goods_name}} * {{goodsitem.total_num}} \n\r
+          </text>
+        </view>
+      </van-cell>
+      <van-cell title="合计:￥{{item.pay_price}}　数量: {{item.goods.length}}" label="{{item.creattime_text}}">
+        <view slot="right-icon">
+          <van-button size="small" data-id="{{item.id}}" custom-class="bt-zs" bind:click="bt_url">订单详情</van-button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-tab>
+
+  <van-tab title="待收货">
+    <van-cell-group custom-class="oneorder" wx:for="{{OrderList}}" wx:key="this" wx:for-index="idx" wx:if="{{item.showType=='primary'}}">
+      <van-cell title="订单编号：{{item.order_no}}">
+       <van-tag slot="right-icon" type="{{item.showType}}">{{item.showText}}</van-tag>
+      </van-cell>
+      <van-cell is-link url="./detail?id={{item.id}}">
+        <view slot="title" class='tile_sp'>
+          <text wx:for="{{item.goods}}" wx:for-item="goodsitem">
+            {{goodsitem.goods_name}} * {{goodsitem.total_num}} \n\r
+          </text>
+        </view>
+      </van-cell>
+      <van-cell title="合计:￥{{item.pay_price}}　数量: {{item.goods.length}}" label="{{item.creattime_text}}">
+        <view slot="right-icon">
+          <van-button size="small" data-id="{{item.id}}" custom-class="bt-zs" bind:click="bt_url">订单详情</van-button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-tab>
+</van-tabs>
+
+<view wx:if="{{isNoData}}" class="liteshop-notcont" style="margin-top:130px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../res/imgs/no-data.png"></image>
+    </view>
+    <text class="cont">订单空空如也</text>
+</view>

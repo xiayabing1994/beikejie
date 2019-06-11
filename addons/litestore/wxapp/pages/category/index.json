@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "商品分类",
+  "disableScroll":true,
+  "usingComponents": {
+    "van-search": "/res/vant/search/index",
+    "van-badge": "/res/vant/badge/index",
+    "van-badge-group": "/res/vant/badge-group/index",
+    "van-row": "/res/vant/row/index",
+    "van-col": "/res/vant/col/index"
+  }
+}

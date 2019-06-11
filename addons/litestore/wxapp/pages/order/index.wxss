@@ -1,0 +1,39 @@
+.tile_sp{
+  line-height: 1em;
+  color:#999;
+}
+.right-padding{
+  margin-right: 0.6em;
+}
+.oneorder{
+  margin-top:0.3em;
+  box-shadow: 0 1px 2px #dfb3f8;
+}
+.liteshop-notcont {
+  margin:130rpx 100rpx;
+}
+.liteshop-notcont .img {
+  width:200px;
+  height:120px;
+  margin:0 auto;
+}
+.liteshop-notcont .img image {
+  width: 100%;
+  height: 100%;
+}
+.liteshop-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6d189e;
+  margin-top: 10rpx;
+}
+
+.tab-margin{
+  margin-bottom: 6px;
+}
+
+.bt-zs{
+   background-color: #6d189e!important;
+   color: white!important;
+}

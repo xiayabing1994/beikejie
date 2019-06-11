@@ -1,0 +1,96 @@
+<!-- 顶部通知栏目 -->
+<block wx:if="{{wxapp.Indexotice}}">
+  <van-notice-bar
+    mode="closeable" color="{{wxapp.TopTextColor}}" custom-class="van-nbar-c" background="{{wxapp.BackgroundColor}}"
+    text="{{wxapp.Indexotice}}"/><!-- background van库的api中提供 但无效，故改在了 .van-nbar-c 的css中，如修改颜色请自行修改 -->
+</block>
+
+<!-- banner轮播 -->
+<view class="diy-banner">
+  <swiper autoplay="{{autoplay}}" class="banner-box swiper-box dot-round" duration="{{duration}}" circular="{{true}}" indicator-dots="{{indicatorDots}}" interval="{{interval}}" indicator-color="{{wxapp.BackgroundColor}}" indicator-active-color="{{wxapp.TopTextColor}}" >
+  <navigator hover-class="none" wx:for-item="banner" url="../news/index?id={{banner.id}}" wx:for="{{banner}}" wx:key="this">
+      <swiper-item item-id="{{index}}">
+        <image class="slide-image" mode="aspectFill" src="{{banner.image}}" data-id="{{index}}"></image>
+      </swiper-item>
+    </navigator>
+  </swiper>
+</view>
+
+<!-- 最新上架 -->
+<view class='complist'>
+  <view class="til_conview">
+    <van-row class='in-title'>
+      <van-col><van-icon name="new" color="{{wxapp.BackgroundColor}}" size="2em" custom-class="van-icon-new"/></van-col>
+      <van-col><text class="til_con"> 最新上架 </text></van-col>
+    </van-row>
+    
+  </view>
+  <!-- 最新上架列表 S -->
+     <view class="index_sale ">
+      <scroll-view scroll-x="true">
+        <navigator hover-class="none" style="display: inline-block;" url="../goods/index?goods_id={{item.goods_id}}" wx:for="{{newlist}}" wx:key="this">
+          <view class="page-column">
+            <view class="sale_img">
+              <image mode="aspectFill" src="{{item.ImageFrist}}"></image>
+            </view>
+            <view class="content onelist-hidden">
+              <text>{{item.goods_name}}</text>
+            </view>
+            <text class="price">￥{{item.spec[0].goods_price}}</text>
+          </view>
+        </navigator>
+      </scroll-view>
+    </view>
+  <!-- 最新上架列表 E -->
+</view>
+
+
+<!-- 随机推荐 -->
+<view class='complist'>
+  <view class="til_conview">
+    <van-row class='in-title'>
+      <van-col><van-icon name="send-gift" color="{{wxapp.BackgroundColor}}" size="2em" custom-class="van-icon-new"/></van-col>
+      <van-col><text class="til_con"> 随机推荐 </text></van-col>
+    </van-row>
+    
+  </view>
+  <!-- 随机推荐列表 S -->
+     <view class="index_sale ">
+      <view class="free-WaterfallFlow">
+        <block>
+          <view class="flex-wrap" wx:for="{{randomlist}}" wx:key='{{item.goods_id}}' wx:for-index="idx" wx:if="{{idx%2!=''}}">
+            <navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+              <view class="page-column">
+                <view>
+                  <image mode="widthFix" src="{{item.ImageFrist}}"></image>
+                </view>
+                <view class="content_raddom">
+                  <text>{{item.goods_name}}</text>
+                </view>
+                <text class="price">￥{{item.spec[0].goods_price}}</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+        <block>
+          <view class="flex-wrap" wx:for="{{randomlist}}" wx:key='{{item.goods_id}}' wx:for-index="idx" wx:if="{{idx%2==''}}">
+            <navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+              <view class="page-column">
+                <view>
+                  <image mode="widthFix" src="{{item.ImageFrist}}"></image>
+                </view>
+                <view class="content_raddom">
+                  <text>{{item.goods_name}}</text>
+                </view>
+                <text class="price">￥{{item.spec[0].goods_price}}</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </view>
+      <include src="../foot_right.wxml"/>
+    </view>
+  <!-- 随机推荐列表 E -->
+</view>
+
+<ad unit-id="adunit-2a1643b3e873e2a3"></ad>

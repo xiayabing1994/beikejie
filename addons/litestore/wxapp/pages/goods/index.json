@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "van-icon": "/res/vant/icon/index",
+    "van-cell": "/res/vant/cell/index",
+    "van-cell-group": "/res/vant/cell-group/index",
+    "van-tag": "/res/vant/tag/index",
+    "van-radio": "/res/vant/radio/index",
+    "van-radio-group": "/res/vant/radio-group/index",
+    "van-stepper": "/res/vant/stepper/index",
+    "van-row": "/res/vant/row/index",
+    "van-col": "/res/vant/col/index",
+    "van-goods-action": "/res/vant/goods-action/index",
+    "van-goods-action-icon": "/res/vant/goods-action-icon/index",
+    "van-goods-action-button": "/res/vant/goods-action-button/index",
+    "van-toast": "/res/vant/toast/index"
+  }
+}

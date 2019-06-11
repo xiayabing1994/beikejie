@@ -1,0 +1,82 @@
+<!-- 商品规格属性模板 -->
+<script id="tpl_spec_attr" type="text/template">
+    <% for(var j=0;j< spec_attr.length;j++){ %>
+    <div class="spec-group-item" data-index="<%=j%>" data-group-id="<%=spec_attr[j].group_id%>">
+        <div class="spec-group-name">
+            <span><%=spec_attr[j].group_name%></span>
+            <i class="spec-group-delete fa fa-trash icon-shanchu1" title="点击删除"></i>
+        </div>
+        <div class="spec-list am-cf">
+            <% for(var k=0;k<spec_attr[j].spec_items.length;k++){ %>
+            <div class="spec-item am-fl" data-item-index="<%=k%>">
+                <span><%=spec_attr[j].spec_items[k].spec_value%></span>
+                <i class="spec-item-delete fa fa-trash icon-shanchu1" title="点击删除"></i>
+            </div>
+            <% } %>
+            <div class="spec-item-add am-cf am-fl">
+                <input type="text" class="ipt-specItem am-fl am-field-valid">
+                <button type="button" class="btn-addSpecItem btn btn-xs btn-success am-fl">添加</button>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</script>
+
+<!-- 商品规格table模板 -->
+<script id="tpl_spec_table" type="text/template">
+    <tbody>
+    <tr>
+        <th>单sku隐藏</th>
+        <% for(var i=0;i< spec_attr.length;i++){ %>
+            <th><%=spec_attr[i].group_name%></th>
+        <% } %>
+        <th>商品编码</th>
+        <th>销售价</th>
+        <th>划线价</th>
+        <th>库存(-1隐藏)</th>
+        <th>重量(kg)</th>
+        <th>规格封面</th>
+        <th>封面编辑</th>
+    </tr>
+    <% for(var i=0;i<spec_list.length;i++){ %>
+    <tr data-index="<%=i%>" data-sku-id="<%=spec_list[i].spec_sku_id %>">
+        <td>
+            <button type="button" class="am-text-middle btn delsku-bt"><% if(spec_list[i].form.stock_num===-1) {%> 显示  <%}else{%> 隐藏 <%} %></button>
+        </td>
+        <% for(var k=0;k<spec_list[i].rows.length;k++){ %>
+        <td class="td-spec-value am-text-middle" rowspan="<%=spec_list[i].rows[k].rowspan%>">
+            <%=spec_list[i].rows[k].spec_value%>
+        </td>
+        <% } %>
+        <td>
+            <input <% if(spec_list[i].form.stock_num===-1) {%> disabled <%}else{%>  <%} %> type="text" name="goods_no" data-rule="required" value="<%=spec_list[i].form.goods_no%>" class="ipt-goods-no am-field-valid">
+        </td>
+        <td>
+            <input  <% if(spec_list[i].form.stock_num===-1) {%> disabled <%}else{%>  <%} %>  type="number" name="goods_price" data-rule="required" value="<%=spec_list[i].form.goods_price%>" class="am-field-valid ipt-w80"
+                   required>
+        </td>
+        <td>
+            <input <% if(spec_list[i].form.stock_num===-1) {%> disabled <%}else{%>  <%} %> type="number" name="line_price" data-rule="required" value="<%=spec_list[i].form.line_price%>" class="am-field-valid ipt-w80">
+        </td>
+        <td>
+            <input <% if(spec_list[i].form.stock_num===-1) {%>disabled  <%}else{%>  <%} %> type="number" name="stock_num" data-rule="required" value="<%=spec_list[i].form.stock_num%>" class="am-field-valid ipt-w80"
+                   required>
+        </td>
+        <td>
+            <input <% if(spec_list[i].form.stock_num===-1) {%>disabled  <%}else{%>  <%} %> type="number" name="goods_weight" data-rule="required" value="<%=spec_list[i].form.goods_weight%>" class="am-field-valid ipt-w80"
+                   required>
+        </td>
+        <td>
+            <input <% if(spec_list[i].form.stock_num===-1) {%> disabled <%}else{%>  <%} %>  id="c-image<%=i%>" class="form-control form-control" style="display: none!important;" name="spec_image" type="text" value="<%=spec_list[i].form.spec_image%>">
+            <div class="row list-inline plupload-preview spe_img_one" id="p-image<%=i%>"></div>
+        </td>
+        <td>
+            <div class="input-group-addon no-border no-padding">
+                <span><button type="button" id="plupload-image<%=i%>" style="display: none!important;" class="btn btn-danger plupload" data-input-id="c-image<%=i%>" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image<%=i%>"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" <% if(spec_list[i].form.stock_num===-1) {%> disabled <%}else{%>  <%} %> id="fachoose-image<%=i%>" class="btn btn-primary fachoose" data-input-id="c-image<%=i%>" data-mimetype="image/*" data-preview-id="p-image<%=i%>" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+            </div>
+        </td>
+    </tr>
+    <% } %>
+    </tbody>
+</script>

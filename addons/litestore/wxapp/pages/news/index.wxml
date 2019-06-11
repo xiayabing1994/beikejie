@@ -1,0 +1,28 @@
+<import src="../../res/wxParse/wxParse.wxml"></import>
+<view class="container">
+
+  <!-- S 封面 -->
+  <view class="cover" style="background-image:url({{ archivesInfo.image }})">
+  </view>
+  <!-- E 封面 -->
+
+  <!-- S 标题 -->
+  <view class="title">
+    <view class="h1">{{ archivesInfo.title }}</view>
+    <view class="date">{{ archivesInfo.updatetime }}</view>
+  </view>
+  <!-- E 标题 -->
+
+  <!-- S 正文 -->
+  <view class="content">
+      <view class="goods-cont-li">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+     </view>
+  </view>
+  <!-- E 正文 -->
+  
+  <include src="../foot_right.wxml"/>
+
+  <ad unit-id="adunit-d5efbd9565ba0b19"></ad>
+</view>
+

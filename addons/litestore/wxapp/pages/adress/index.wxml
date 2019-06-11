@@ -1,0 +1,27 @@
+<van-swipe-cell class="vscell" right-width="{{ 65 }}" left-width="{{ 65 }}"  wx:for="{{adresslist}}" wx:key="this" wx:for-index="idx" data-id="{{idx}}" data-adressid="{{item.address_id}}"
+data-defult="{{item.isdefault}}" bind:click="onclickItem">
+  <view slot="left" class='vccb morenb'>默认</view>
+  <van-cell-group>
+     <van-cell custom-class="{{item.isdefault=='1'? 'morenback' :''}}" title-class="title-class" value="编辑" is-link border="{{ false }}" >
+      <view slot="title">
+        <span class="van-cell-text">{{item.name}} {{item.phone}}</span>
+        <van-tag wx:if="{{item.isdefault=='1'}}" mark custom-class='tagdef' type="danger">默认</van-tag>
+        <view class="ob-label">{{item.Area.province}}{{item.Area.city}}{{item.Area.region}} {{item.detail}}</view>
+      </view>
+      </van-cell>
+  </van-cell-group>
+  <view slot="right" class='vccb delb'>删除</view>
+</van-swipe-cell>
+
+<view wx:if="{{!adresslist.length}}" class="liteshop-notcont" style="margin-top:130px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../res/imgs/no-data.png"></image>
+    </view>
+    <text class="cont">未增加地址</text>
+  </view>
+
+  <view class="footer-fixed">
+    <view bindtap="createAddress" class="order-bt" style="width:100%">添加新地址</view>
+  </view>
+
+  <van-toast id="van-toast" />

@@ -1,0 +1,1147 @@
+---------------------------------------------------------------
+[ 2019-06-11T09:24:42+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/
+[运行时间：0.030905s] [吞吐率：32.36req/s] [内存消耗：3,039.25kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001194s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; Path=/www/wwwroot/beike/application',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001278s ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/beike/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:46:52+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/api/user/mregister
+[运行时间：0.027308s] [吞吐率：36.62req/s] [内存消耗：2,546.26kb] [文件加载：121]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001581s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'mregister',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '391',
+  'content-type' => 'multipart/form-data; boundary=--------------------------748434135850981929894946',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => '71a1b82b-aa63-4548-91ca-3bf1d94aa7be',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'mobile' => '{{mob}}',
+  'password' => '123456',
+  'captcha' => '1234',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001570s ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn/user.php
+[ info ] [ RUN ] app\api\controller\User->mregister[ /www/wwwroot/beike/application/api/controller/User.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:47:16+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/api/user/mregister
+[运行时间：0.030726s] [吞吐率：32.55req/s] [内存消耗：3,335.99kb] [文件加载：128]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001194s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'mregister',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '395',
+  'content-type' => 'multipart/form-data; boundary=--------------------------670873875461001537566078',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => '2904473f-068e-4070-91c6-4fd5dc415668',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'mobile' => '18236585112',
+  'password' => '123456',
+  'captcha' => '1234',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001416s ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn/user.php
+[ info ] [ RUN ] app\api\controller\User->mregister[ /www/wwwroot/beike/application/api/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000661s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001243s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `username` = '18236585112' LIMIT 1 [ RunTime:0.000631s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:54:00+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/addons/litestore/api.order/callback
+[运行时间：0.031727s] [吞吐率：31.52req/s] [内存消耗：3,320.91kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001258s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '394',
+  'content-type' => 'multipart/form-data; boundary=--------------------------627791099318309149500355',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => 'b140b6de-4863-4831-af3f-5ca53341f0b8',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'no' => '2019061049545010',
+  'tid' => 'wx2132',
+  'token' => '{{token}}',
+  'addon' => 'litestore',
+  'controller' => 'api.order',
+  'action' => 'callback',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001374s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000550s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = 'dd636623541c363da918350b295c6bc87d05498f' LIMIT 1 [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:54:10+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/api/user/login
+[运行时间：0.040267s] [吞吐率：24.83req/s] [内存消耗：3,481.27kb] [文件加载：133]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000039s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001156s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '286',
+  'content-type' => 'multipart/form-data; boundary=--------------------------480134698365231851046035',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => 'e384fd0a-f9f6-44e7-8f9d-86aba340367a',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'account' => '18236585112',
+  'password' => '123456',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001183s ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/api/lang/zh-cn/user.php
+[ info ] [ RUN ] app\api\controller\User->login[ /www/wwwroot/beike/application/api/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000674s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001115s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `mobile` = '18236585112' LIMIT 1 [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] UPDATE `fa_user`  SET `successions`=3,`maxsuccessions`=3,`prevtime`=1560167632,`logintime`=1560218050,`loginip`='123.161.202.3',`updatetime`=1560218050  WHERE  `id` = 3 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000646s ]
+[ sql ] [ SQL ] INSERT INTO `fa_user_token` (`token` , `user_id` , `createtime` , `expiretime`) VALUES ('4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' , 3 , 1560218050 , 1562810050) [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = '4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' LIMIT 1 [ RunTime:0.000471s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:54:32+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/addons/litestore/api.order/callback
+[运行时间：0.051871s] [吞吐率：19.28req/s] [内存消耗：3,837.38kb] [文件加载：138]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000027s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001648s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '421',
+  'content-type' => 'multipart/form-data; boundary=--------------------------754661596233007288628245',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => '74af17aa-5032-4b55-8345-7a2e636191f5',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'no' => '2019061049545010',
+  'tid' => 'wx2132',
+  'token' => '40f1ff3b-c43f-40f4-bb5d-8242da023ddf',
+  'addon' => 'litestore',
+  'controller' => 'api.order',
+  'action' => 'callback',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001912s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000547s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000907s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = '4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001295s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order` WHERE  `order_no` = '2019061049545010'  AND `pay_status` = '10' LIMIT 1 [ RunTime:0.000422s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:54:39+08:00 ] 219.157.241.95 POST 39.98.177.193:8088/addons/litestore/api.index/appindex
+[运行时间：0.039544s] [吞吐率：25.29req/s] [内存消耗：3,839.29kb] [文件加载：141]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001130s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => 'd575eb4f-e578-4f86-bb1d-8b18cc151876',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'addon' => 'litestore',
+  'controller' => 'api.index',
+  'action' => 'appindex',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001271s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000526s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_news` [ RunTime:0.000967s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_news` WHERE  `status` = 'normal' ORDER BY `updatetime` DESC LIMIT 10 [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_goods` [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_category` [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `wxlitestoregoods`.`goods_id`,`wxlitestoregoods`.`goods_name`,`wxlitestoregoods`.`category_id`,`wxlitestoregoods`.`images`,`wxlitestoregoods`.`spec_type`,`wxlitestoregoods`.`deduct_stock_type`,`wxlitestoregoods`.`content`,`wxlitestoregoods`.`sales_initial`,`wxlitestoregoods`.`sales_actual`,`wxlitestoregoods`.`goods_sort`,`wxlitestoregoods`.`delivery_id`,`wxlitestoregoods`.`goods_status`,`wxlitestoregoods`.`is_delete`,`wxlitestoregoods`.`createtime`,`wxlitestoregoods`.`updatetime`,`wxlitestoregoods`.`goods_type`,`wxlitestoregoods`.`provider`,category.id AS category__id,category.pid AS category__pid,category.name AS category__name,category.image AS category__image,category.weigh AS category__weigh,category.createtime AS category__createtime,category.updatetime AS category__updatetime FROM `fa_litestore_goods` `wxlitestoregoods` LEFT JOIN `fa_litestore_category` `category` ON `wxlitestoregoods`.`category_id`=`category`.`id` WHERE  `is_delete` = '0'  AND `goods_status` = '10' ORDER BY sales_actual LIMIT 8 [ RunTime:0.000498s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_goods_spec` [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_goods_spec` WHERE  `goods_id` IN (25,27,26,21,23,24,22) [ RunTime:0.000535s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:56:15+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin
+[运行时间：0.027032s] [吞吐率：36.99req/s] [内存消耗：2,978.90kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001128s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001261s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/common/view/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000066s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:56:17+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/index/login?url=%2Fadmin
+[运行时间：0.031365s] [吞吐率：31.88req/s] [内存消耗：3,277.38kb] [文件加载：135]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000028s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001135s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/admin',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001524s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ /www/wwwroot/beike/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/admin/view/index/login.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'background',
+  6 => 'title',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000065s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:56:17+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/index.php?s=/captcha
+[运行时间：0.018259s] [吞吐率：54.77req/s] [内存消耗：2,022.55kb] [文件加载：109]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001158s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/index/login?url=%2Fadmin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/beike/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:56:18+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/ajax/lang?callback=define&controllername=index&v=1560218177
+[运行时间：0.028930s] [吞吐率：34.57req/s] [内存消耗：3,106.98kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001114s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/index/login?url=%2Fadmin',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1560218177',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001372s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/beike/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000087s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:56:28+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/admin/index/login?url=%2Fadmin
+[运行时间：0.044515s] [吞吐率：22.46req/s] [内存消耗：3,884.05kb] [文件加载：140]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001194s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/index/login?url=%2Fadmin',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://39.98.177.193:8088',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '86',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/admin',
+  '__token__' => 'faa86afc25bd97c3990f2669e7ea6b25',
+  'username' => 'admin',
+  'password' => '111111',
+  'captcha' => 'g2tm',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001256s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ /www/wwwroot/beike/application/admin/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.004298s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000633s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin` [ RunTime:0.000792s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] UPDATE `fa_admin`  SET `logintime`=1560218188,`token`='70fada06-384b-4f46-8cbc-240843b0b115',`updatetime`=1560218188  WHERE  `id` = 1 [ RunTime:0.003470s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_admin_log` [ RunTime:0.000750s ]
+[ sql ] [ SQL ] INSERT INTO `fa_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('登录' , '{\"url\":\"\\/admin\",\"__token__\":\"faa86afc25bd97c3990f2669e7ea6b25\",\"username\":\"admin\",\"captcha\":\"g2tm\"}' , '/admin/index/login?url=%2Fadmin' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36' , '123.161.202.3' , 1560218188) [ RunTime:0.002812s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:56:28+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin
+[运行时间：0.082754s] [吞吐率：12.08req/s] [内存消耗：4,422.40kb] [文件加载：153]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000027s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001156s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/index/login?url=%2Fadmin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001210s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->index[ /www/wwwroot/beike/application/admin/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/admin/view/index/index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'menulist',
+  6 => 'navlist',
+  7 => 'fixedmenu',
+  8 => 'referermenu',
+  9 => 'title',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000067s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000710s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000717s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000572s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:56:28+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/dashboard?addtabs=1
+[运行时间：0.047390s] [吞吐率：21.10req/s] [内存消耗：4,267.20kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001164s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'dashboard',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001188s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ RUN ] app\admin\controller\Dashboard->index[ /www/wwwroot/beike/application/admin/controller/Dashboard.php ]
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/admin/view/dashboard/index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'totaluser',
+  6 => 'totalviews',
+  7 => 'totalorder',
+  8 => 'totalorderamount',
+  9 => 'todayuserlogin',
+  10 => 'todayusersignup',
+  11 => 'todayorder',
+  12 => 'unsettleorder',
+  13 => 'sevendnu',
+  14 => 'sevendau',
+  15 => 'paylist',
+  16 => 'createlist',
+  17 => 'addonversion',
+  18 => 'uploadmode',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000084s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000642s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.001121s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000997s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'dashboard' LIMIT 1 [ RunTime:0.000681s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:56:29+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/ajax/lang?callback=define&controllername=dashboard&v=1560218188
+[运行时间：0.028161s] [吞吐率：35.51req/s] [内存消耗：3,106.99kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001136s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/dashboard?addtabs=1',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'dashboard',
+  'v' => '1560218188',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001182s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/beike/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000070s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:56:29+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/ajax/lang?callback=define&controllername=index&v=1560218188
+[运行时间：0.028843s] [吞吐率：34.67req/s] [内存消耗：3,108.27kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000017s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001072s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1560218188',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001326s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/beike/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000062s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:57:55+08:00 ] 180.163.220.3 GET 39.98.177.193:8088/
+[运行时间：0.026031s] [吞吐率：38.42req/s] [内存消耗：2,872.33kb] [文件加载：127]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001211s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001221s ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/beike/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:58:23+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/addons/litestore/api.order/callback
+[运行时间：0.038534s] [吞吐率：25.95req/s] [内存消耗：3,776.15kb] [文件加载：134]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001249s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '421',
+  'content-type' => 'multipart/form-data; boundary=--------------------------955854227427556668780645',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => 'e3456850-a1ec-4027-a3cd-bb590d59ef79',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'no' => '2019061049545010',
+  'tid' => 'wx2132',
+  'token' => '40f1ff3b-c43f-40f4-bb5d-8242da023ddf',
+  'addon' => 'litestore',
+  'controller' => 'api.order',
+  'action' => 'callback',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001370s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000676s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = '4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' LIMIT 1 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001010s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order` [ RunTime:0.000799s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order` WHERE  `order_no` = '2019061049545010'  AND `pay_status` = '10' LIMIT 1 [ RunTime:0.000378s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:58:33+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/litestoreorder?addtabs=1
+[运行时间：0.044981s] [吞吐率：22.23req/s] [内存消耗：4,178.34kb] [文件加载：142]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001295s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'litestoreorder',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/litestoreorder?ref=addtabs',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001354s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/litestoreorder.php
+[ info ] [ RUN ] app\admin\controller\Litestoreorder->index[ /www/wwwroot/beike/application/admin/controller/Litestoreorder.php ]
+[ info ] [ VIEW ] /www/wwwroot/beike/public/../application/admin/view/litestoreorder/index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'payStatusList',
+  6 => 'freightStatusList',
+  7 => 'receiptStatusList',
+  8 => 'orderStatusList',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000067s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000559s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.001086s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.001058s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'litestoreorder' LIMIT 1 [ RunTime:0.000721s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:58:33+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/ajax/lang?callback=define&controllername=litestoreorder&v=1560218313
+[运行时间：0.031021s] [吞吐率：32.24req/s] [内存消耗：3,106.01kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000033s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001477s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/litestoreorder?addtabs=1',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'litestoreorder',
+  'v' => '1560218313',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002308s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/beike/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/litestoreorder.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000071s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-06-11T09:58:34+08:00 ] 123.161.202.3 GET 39.98.177.193:8088/admin/litestoreorder/index?sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1560218315148
+[运行时间：0.381987s] [吞吐率：2.62req/s] [内存消耗：4,199.09kb] [文件加载：145]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001337s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'litestoreorder',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; BT_PANEL_6=ede4755f-8e85-4f33-ab4b-ebab7a6779f8.9RMz2MXSsjfvkxAs9eq9JrUo3Ys; request_token=5fd1fe3951cb5d556cb7f3fec8b88c51; order=id%20desc; force=0; memSize=3790; p0=5; sites_path=/www/wwwroot; serverType=nginx; uploadSize=1073741824; backup_path=/www/backup; softType=5; SetName=; BatchPaste=null; copyFileName=/www/wwwroot/socket/MeepoPS/Example/Real_Time_Monitor_Ssh; cutFileName=null; rank=a; vcodesum=7; thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1560216285; Path=/www/wwwroot/robot; PHPSESSID=0kmfvr7mqmnjspnkjga3v7lekp',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://39.98.177.193:8088/admin/litestoreorder?addtabs=1',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => '39.98.177.193:8088',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'id',
+  'order' => 'desc',
+  'offset' => '0',
+  'limit' => '10',
+  'filter' => '{}',
+  'op' => '{}',
+  '_' => '1560218315148',
+)
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001257s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/admin/lang/zh-cn/litestoreorder.php
+[ info ] [ RUN ] app\admin\controller\Litestoreorder->index[ /www/wwwroot/beike/application/admin/controller/Litestoreorder.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000078s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000761s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000748s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000552s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000791s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000963s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order` [ RunTime:0.001159s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order_address` [ RunTime:0.000826s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_litestore_order` `litestoreorder` LEFT JOIN `fa_litestore_order_address` `address` ON `litestoreorder`.`id`=`address`.`order_id` ORDER BY `litestoreorder`.`id` DESC LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT `litestoreorder`.`id`,`litestoreorder`.`order_no`,`litestoreorder`.`total_price`,`litestoreorder`.`pay_price`,`litestoreorder`.`pay_status`,`litestoreorder`.`pay_time`,`litestoreorder`.`express_price`,`litestoreorder`.`express_company`,`litestoreorder`.`express_no`,`litestoreorder`.`freight_status`,`litestoreorder`.`freight_time`,`litestoreorder`.`receipt_status`,`litestoreorder`.`receipt_time`,`litestoreorder`.`order_status`,`litestoreorder`.`transaction_id`,`litestoreorder`.`user_id`,`litestoreorder`.`createtime`,`litestoreorder`.`updatetime`,`litestoreorder`.`goods_type`,address.id AS address__id,address.name AS address__name,address.phone AS address__phone,address.province_id AS address__province_id,address.city_id AS address__city_id,address.region_id AS address__region_id,address.detail AS address__detail,address.order_id AS address__order_id,address.user_id AS address__user_id,address.createtime AS address__createtime FROM `fa_litestore_order` `litestoreorder` LEFT JOIN `fa_litestore_order_address` `address` ON `litestoreorder`.`id`=`address`.`order_id` ORDER BY `litestoreorder`.`id` DESC LIMIT 0,10 [ RunTime:0.000580s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:58:44+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/addons/litestore/api.order/callback
+[运行时间：0.042108s] [吞吐率：23.75req/s] [内存消耗：3,803.52kb] [文件加载：134]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001269s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '421',
+  'content-type' => 'multipart/form-data; boundary=--------------------------613673767807169534988075',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => '816f10fa-59c5-459e-8beb-1472e03fb3aa',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'no' => '2019061010010154',
+  'tid' => 'wx2132',
+  'token' => '40f1ff3b-c43f-40f4-bb5d-8242da023ddf',
+  'addon' => 'litestore',
+  'controller' => 'api.order',
+  'action' => 'callback',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001466s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000875s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000916s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = '4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' LIMIT 1 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001032s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order` [ RunTime:0.000933s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order` WHERE  `order_no` = '2019061010010154'  AND `pay_status` = '10' LIMIT 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order_goods` [ RunTime:0.000657s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order_goods` WHERE  `order_id` = 11 [ RunTime:0.000393s ]
+---------------------------------------------------------------
+[ 2019-06-11T09:58:59+08:00 ] 123.161.202.3 POST 39.98.177.193:8088/addons/litestore/api.order/callback
+[运行时间：0.039626s] [吞吐率：25.24req/s] [内存消耗：3,796.10kb] [文件加载：134]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001152s ]
+[ info ] [ LANG ] /www/wwwroot/beike/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'content-length' => '421',
+  'content-type' => 'multipart/form-data; boundary=--------------------------647673715394559262965477',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '39.98.177.193:8088',
+  'postman-token' => '64c23e57-f08a-49e0-83a3-a0a9b9860a3f',
+  'cache-control' => 'no-cache',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/7.13.0',
+)
+[ info ] [ PARAM ] array (
+  'no' => '2019061010010154',
+  'tid' => 'wx2132',
+  'token' => '40f1ff3b-c43f-40f4-bb5d-8242da023ddf',
+  'addon' => 'litestore',
+  'controller' => 'api.order',
+  'action' => 'callback',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /www/wwwroot/beike/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /www/wwwroot/beike/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.001354s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000691s ] mysql:host=127.0.0.1;dbname=beikejie;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user_token` [ RunTime:0.000839s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user_token` WHERE  `token` = '4519a52a8a3d5ead4de6e82a7f50e9c23005edfa' LIMIT 1 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.001171s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order` [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order` WHERE  `order_no` = '2019061010010154'  AND `pay_status` = '10' LIMIT 1 [ RunTime:0.000593s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_litestore_order_goods` [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_litestore_order_goods` WHERE  `order_id` = 11 [ RunTime:0.000382s ]

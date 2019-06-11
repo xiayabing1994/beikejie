@@ -1,0 +1,88 @@
+
+<import src="../../res/wxParse/wxParse.wxml"></import>
+
+<view class="diy-banner">
+  <swiper autoplay="{{autoplay}}" class="banner-box swiper-box dot-round" current="current_img_index" duration="{{duration}}" circular="{{true}}" indicator-dots="{{indicatorDots}}" interval="{{interval}}" indicator-color="{{wxapp.BackgroundColor}}" indicator-active-color="{{wxapp.TopTextColor}}">
+    <view hover-class="none" wx:for-item="imgs" wx:for="{{detail.imgs_url}}" wx:key="this">
+      <swiper-item item-id="{{index}}" bindtap="Tap_topimg">
+        <image class="slide-image" mode="aspectFill" src="{{imgs}}" data-id="{{index}}"></image>
+      </swiper-item>
+    </view>
+  </swiper>
+</view>
+
+
+<van-cell-group>
+  <van-cell title="{{detail.goods_name}}" border="{{ false }}" custom-style="font-size:1.2em;margin-bottom:-0.5em;font-weight: bold;"/>
+   <van-cell value="" title-class='titlec'>
+   <view slot="icon">
+    <van-icon name="points" color="#6d189e" size="1.8em" custom-style="margin-right:0.3em;"/>
+   </view>
+    <view slot="title">
+      <span class="van-cell-text" >特惠价：</span>
+      <van-tag mark size="large" type="danger">￥{{goods_price}}</van-tag>
+      <span wx:if="{{line_price!=0.00}}" class="van-cell-text yuanjia" >原价：￥{{line_price}}</span>
+    </view>
+  </van-cell>
+
+  <van-cell title="库存：{{stock_num}}" value="销量:{{detail.goods_sales}}" />
+</van-cell-group>
+
+<view class="modal_cont_box">
+  <view class="til_conview">
+    <van-row class='in-title'>
+      <van-col><van-icon name="coupon" color="{{wxapp.BackgroundColor}}" size="2em" custom-class="van-icon-new"/></van-col>
+      <van-col><text class="til_con"> 规格数量 </text></van-col>
+    </van-row>
+  </view>
+
+  <view class="tmall-types" wx:for="{{specData.spec_attr}}" wx:for-item="attr" wx:for-index="attr_idx" wx:key="key">
+    <view class="tipstxt">{{attr.group_name}}：</view>
+      <van-radio-group custom-class="radio_c" value="{{goods_spec_arr[attr_idx]}}" data-id="{{attr.group_id}}" data-attr_idx="{{attr_idx}}" bind:change="RonChange">
+        <van-radio wx:for="{{attr.spec_items}}" disabled="{{item.hidden}}"
+        custom-class="radio_cc" icon-class="radio_cc {{item.hidden ? 'hidden-cl' : 'radio_i' }}" label-class="{{item.hidden ? 'hidden-cl' : 'radio_l' }}" wx:for-index="item_idx" wx:key="ikey" name="{{item.item_id}}">{{item.spec_value}}</van-radio>
+      </van-radio-group>
+  </view>
+
+<view class="tmall-types">
+  <view class="tipstxt">购买数量：</view>
+  <van-stepper disable-input custom-class="van-stepper-c"  value="{{ goods_num }}" integer  min="1" max="999" bind:change="onstepChange" />
+</view>
+
+</view>
+
+
+<view class="modal_cont_box end_box">
+  <view class="til_conview">
+    <van-row class='in-title'>
+      <van-col><van-icon name="description" color="{{wxapp.BackgroundColor}}" size="2em" custom-class="van-icon-new"/></van-col>
+      <van-col><text class="til_con"> 商品描述 </text></van-col>
+    </van-row>
+  </view>
+   <view class="order">
+        <view wx:if="{{detail.content!=''}}">
+          <view class="goods-detail-box">
+            <view class="goods-cont-li">
+              <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="liteshop-notcont">
+            <text class="cont">此商品暂无商品详情</text>
+          </view>
+        </view>
+    </view>
+    <include src="../foot_right.wxml"/>
+    <ad style="margin-bottom:98rpx;" unit-id="adunit-db7db6470270463b"></ad>
+</view>
+
+<van-goods-action>
+  <van-goods-action-icon open-type="contact" icon="chat" text="客服" />
+  <van-goods-action-icon icon="cart" text="购物车" info="{{cartnum==0?'':cartnum}}" link-type="switchTab" url="../cart/index"/>
+  <van-goods-action-icon icon="shop" link-type="switchTab" url="../index/index" text="店铺" />
+  <van-goods-action-button loading="{{addcart_loading}}" text="加入购物车" type="warning" bind:click="addcart"/>
+  <van-goods-action-button text="立即购买" bind:click="ByNow"/>
+</van-goods-action>
+
+<van-toast id="van-toast" />

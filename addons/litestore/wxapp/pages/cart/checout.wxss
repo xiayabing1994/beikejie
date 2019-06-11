@@ -1,0 +1,101 @@
+.tagadress{
+  margin-left: 1em;
+}
+.error_goods{
+  background-color:#fff;filter:Alpha(Opacity=30);opacity:0.3;
+}
+.lianxirentip{
+  color: #6d189e;
+}
+.ico-ad{
+  font-size: 12px!important;
+  margin-right:0.68em;
+}
+.card-t-c{
+  font-size: 1.4em;
+}
+.card-p-c{
+  font-size: 1.3em;
+  color: red;
+  font-weight: bolder;
+}
+.card-op-c{
+  font-size: 1.1em;
+  text-decoration:none!important;
+  margin-top:0.28em;
+}
+.card-root-c{
+  /*padding-top: 10px;*/
+  /*border:1px solid #ecd1fc;*/
+}
+.van-card-root-c{
+  box-shadow: 0 1px 2px #dfb3f8;
+  background-color:white!important;
+}
+.no-more{
+  margin:1em auto;
+  text-align:center;
+  color: #6d189e;
+}
+.liteshop-notcont {
+  margin:130rpx 100rpx;
+}
+.liteshop-notcont .img {
+  width:200px;
+  height:120px;
+  margin:0 auto;
+}
+.liteshop-notcont .img image {
+  width: 100%;
+  height: 100%;
+}
+.liteshop-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6d189e;
+  margin-top: 10rpx;
+}
+.van-stepper__input--disabled {
+  color:white!important;
+  background-color:#6d189e!important;
+  z-index:-9!important;
+}
+.van-card__footer {
+  bottom:16px!important;
+}
+.delb{
+  height:100%;
+  width:65px;
+  text-align:center;
+  font-size:1.2em;
+  background-color:#6d189e;
+  color:white;
+  font-weight:bold;
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+}
+.p-bottom{
+  padding-bottom:110px;
+}
+.pric-cell{
+  color:#f44;
+}
+.vcg-c{
+  padding-top: 10px;
+  box-shadow: 0 1px 2px #dfb3f8;
+}
+
+.goods_err_div{
+  position:absolute;
+  z-index:9;
+  font-size:2em;
+  line-height:100px;
+  text-align:center;
+  width:100%;
+  color: #6d189e;
+  letter-spacing:1.2em;
+  font-weight:bolder;
+  text-indent : 3em;
+}

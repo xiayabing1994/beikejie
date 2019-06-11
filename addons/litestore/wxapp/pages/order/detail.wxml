@@ -1,0 +1,39 @@
+<van-steps steps="{{ steps }}" active="{{ active }}" active-color="{{wxapp.BackgroundColor}}" custom-class="vsp-c"/>
+
+<view class="p-bottom">
+
+  <view class="card-root-c" wx:for="{{detail.goods}}" wx:key="key" wx:for-index="idx">
+      <van-card custom-class="van-card-root-c" thumb-link="../goods/index?goods_id={{item.goods_id}}" 
+        price="{{item.goods_price}}" num="{{item.total_num}}" title="{{item.goods_name}}"
+        desc="{{item.goods_attr ? item.goods_attr :'默认规格'}}" 
+        centered="{{true}}" lazy-load="{{true}}" title-class="card-t-c" price-class="card-p-c" thumb="{{item.spec.spec_image==''? item.image:item.sku_image}}">
+      </van-card>
+  </view>
+    <!-- 这里是总计 和 邮费 -->
+  <van-cell-group custom-class="vcg-c">
+    <van-cell title="订单号：" value="{{detail.order_no}}" />
+    <van-cell title="商品价格总计：" value-class="pric-cell" value="￥{{detail.total_price}}" />
+    <van-cell title="快递费用：" value-class="pric-cell" value="＋ ￥{{detail.express_price}}" />
+
+    <!-- 在已发货后 可以看到 发货时间，发货单号 运送公司 -->
+    <block wx:if="{{detail.freight_time!=0}}">
+      <van-cell title="发货时间：" value="{{detail.freight_time_text}}" />
+      <van-cell title="快递公司：" value="{{detail.express_company}}" />
+      <van-cell title="快递单号：" value="{{detail.express_no}}" />
+    </block>
+  </van-cell-group>
+
+</view>
+
+<van-submit-bar
+  price="{{detail.pay_price*100}}" button-type="{{detail.BTtype}}"
+  button-text="{{detail.BTText}}" disabled="{{active==1 || active==3}}"
+  bind:submit="onClicktjButton"
+  tip="{{ true }}"
+>
+<van-tag size="large" wx:if="{{active==0}}" custom-class="tagadress" color="{{wxapp.BackgroundColor}}" bindtap="TapCancel">取消订单</van-tag>
+  <view slot="tip">
+    <van-icon custom-class='ico-ad' name="logistics"/> {{detail.address.Area.province}}{{detail.address.Area.city}}{{detail.address.Area.region}} - {{detail.address.detail}}<text>\n\r</text>
+    <van-icon custom-class='lianxirentip ico-ad' name="phone"/><text class='lianxirentip'> {{detail.address.name}} : {{detail.address.phone}}</text>
+  </view>
+</van-submit-bar>

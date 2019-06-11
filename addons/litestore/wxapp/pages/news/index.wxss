@@ -1,0 +1,75 @@
+.container{
+  padding:0;
+}
+.cover {
+  width: 750rpx;
+  height: 416.6rpx;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+}
+
+.cover .intro {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+
+.title {
+  position:relative;
+  padding:30rpx;
+  color:#666;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  width:690rpx;
+}
+
+.title .h1 {
+  font-size: 22px;
+  line-height: 25px;
+}
+
+.title .date {
+  margin-top: 5px;
+  font-size: 12px;
+  color:#bbb;
+}
+
+.content {
+  padding:30rpx;
+  /*width:690rpx;*/
+  background:#fff;
+  position:relative;
+}
+.goods-cont-li .wxParse-inline {
+  font-size: 28rpx;
+  padding: 10rpx 10rpx;
+}
+.goods-cont-li image {
+  width: 708rpx!important;
+  display: block;
+  margin: 0 auto;
+  margin-left: 0rpx;
+}
+.goods-cont-li .wxParse-inline {
+  font-size: 30rpx;
+}
+.wxParse-p{
+  line-height:1em;
+}
+
+.content{
+  min-height:360rpx;
+}
+.title-footer{
+  margin:0;
+  bottom:1em;
+  width:100%;
+  background-color:white;
+}
+page {
+  background-color:white;
+}

@@ -1,0 +1,33 @@
+<view class="p-bottom">
+
+  <view class="card-root-c"  wx:for="{{goods_list}}" wx:key="this" wx:for-index="idx">
+    <van-swipe-cell right-width="{{ 65 }}" data-id="{{item.goods_id}}" data-goods_sku_id="{{item.goods_sku_id}}" class="vscell" bind:click="onCloseItem">
+      <view wx:if="{{item.show_error != 0}}" class="goods_err_div">{{item.show_error_text}}</view>
+        <van-card custom-class="van-card-root-c {{ item.show_error == 0 ? '' : 'error_goods'}}" thumb-link="../goods/index?goods_id={{item.goods_id}}" 
+        price="{{item.goods_price}}" 
+        title="{{item.goods_name}}" 
+        desc="{{item.goods_sku.goods_attr ? item.goods_sku.goods_attr :'默认规格'}}"  desc-class="vard-d-c"
+        centered="{{true}}" lazy-load="{{true}}" title-class="card-t-c" price-class="card-p-c" thumb="{{item.goods_sku.spec_image==''? item.image:item.goods_sku.img_show}}">
+        <view slot="footer">
+          <van-stepper disable-input data-id="{{idx}}" data-goods_sku_id="{{item.goods_sku_id}}"
+          custom-class="van-stepper-c" value="{{item.total_num}}" integer min="1" max="999" bind:plus="onplus" bind:minus="onsub" />
+        </view>
+      </van-card>
+      <view slot="right" class='delb'><span>删除</span></view>
+    </van-swipe-cell>
+  </view>
+
+</view>
+
+<view wx:if="{{!goods_list.length}}" class="liteshop-notcont" style="margin-top:130px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../res/imgs/no-data.png"></image>
+    </view>
+    <text class="cont">购物车空空如也</text>
+  </view>
+
+<!-- 结算页 -->
+<van-submit-bar
+  price="{{order_total_price*100}}"
+  button-text="开始结算"
+  bind:submit="onSubmit" />

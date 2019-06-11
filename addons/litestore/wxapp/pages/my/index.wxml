@@ -1,0 +1,42 @@
+<view class="header">
+    <view class="avatar">
+      <image src='{{ userInfo.avatar }}'></image>
+    </view>
+
+    <view class="account">
+      <van-button plain type="primary" size="small" wx:if="{{userInfo.mobile=='NoLoginData'}}" open-type="getUserInfo" bind:getuserinfo="onGotUserInfo">点击登录</van-button>
+      <view wx:else class="showname">
+          {{ userInfo.nickname }}
+      </view>
+    </view>
+</view>
+
+<van-cell-group custom-class="buttons_froup">
+  <van-cell title="收货地址管理" icon="location" url="../adress/index" is-link />
+  <van-cell title="全部订单" icon="records" url="../order/index?showType=0" is-link />
+  <van-cell icon="after-sale" url="../order/index?showType=1" is-link>
+    <view slot="title">
+      <span>待付款订单</span>
+      <van-tag custom-class="tag-c-c" wx:if="{{datanum.NoPayNum!=0}}" color="#6d189e">{{datanum.NoPayNum}}</van-tag>
+    </view>
+  </van-cell>
+  <van-cell icon="free-postage" url="../order/index?showType=2" is-link>
+    <view slot="title">
+      <span>待发货订单</span>
+      <van-tag custom-class="tag-c-c" wx:if="{{datanum.NoFreightNum!=0}}" color="#6d189e">{{datanum.NoFreightNum}}</van-tag>
+    </view>
+  </van-cell>
+  <van-cell icon="completed" url="../order/index?showType=3" is-link>
+    <view slot="title">
+      <span>待收货订单</span>
+      <van-tag custom-class="tag-c-c" wx:if="{{datanum.NoReceiptNum!=0}}" color="#6d189e">{{datanum.NoReceiptNum}}</van-tag>
+    </view>
+  </van-cell>
+</van-cell-group>
+
+<include src="../foot_right.wxml"/>
+
+<ad unit-id="adunit-2f2b58b1cef20a1f"></ad>
+
+
+

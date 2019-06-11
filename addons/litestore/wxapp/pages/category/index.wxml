@@ -1,0 +1,37 @@
+<van-search
+  value="{{ re_value }}"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="onSearchchange"
+  bind:search="onSearch">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
+<view class="cate-content">
+      <scroll-view class="cate-left" scroll-y="true">
+          <van-badge-group :active="active" bind:change="onChange">
+            <van-badge title="{{item.name}}" info="{{item.childlist.length}}" wx:for="{{category}}" wx:for-item="item" wx:for-index="idx"/>
+          </van-badge-group>
+      </scroll-view>
+
+    <scroll-view class="cate-right" scroll-top="{{scrollTop}}" scroll-y="true">
+     <view wx:if="{{category[active].childlist}}">
+        <view class="cate-right-cont">
+            <view class="cate-cont-box">
+              <van-row gutter="20">
+                <van-col span="8" wx:for="{{category[active].childlist}}" wx:key="cit">
+                  <navigator hover-class="none" url="./list?cid={{item.id}}&rename=0&name={{item.name}}">
+                    <view class="cate-img" id="{{item.id}}">
+                      <image src="{{item.ImageFrist}}"></image>
+                    </view>
+                    <text>{{item.name}}</text>
+                  </navigator>
+                </van-col>
+              </van-row>
+          </view>
+        </view>
+      </view>
+      <view wx:else>
+      </view>
+    </scroll-view>
+</view>

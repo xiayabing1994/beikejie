@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "van-cell": "/res/vant/cell/index",
+    "van-cell-group": "/res/vant/cell-group/index",
+    "van-button": "/res/vant/button/index",
+    "van-tag": "/res/vant/tag/index"
+  }
+}

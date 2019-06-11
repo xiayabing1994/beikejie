@@ -1,0 +1,15 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "van-card": "/res/vant/card/index",
+    "van-swipe-cell": "/res/vant/swipe-cell/index",
+    "van-cell": "/res/vant/cell/index",
+    "van-cell-group": "/res/vant/cell-group/index",
+    "van-submit-bar": "/res/vant/submit-bar/index",
+    "van-tag": "/res/vant/tag/index",
+    "van-icon": "/res/vant/icon/index",
+    "van-toast": "/res/vant/toast/index",
+    "van-steps": "/res/vant/steps/index"
+  }
+}

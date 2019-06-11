@@ -1,0 +1,154 @@
+/*.am-scrollable-horizontal {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+}*/
+.am-scrollable-horizontal table tr td input[type=number]{
+  display: block;
+  width: 100%;
+  padding: 6px 5px;
+  line-height: 1.42857;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border: 0;
+  border-bottom: 1px solid #18bc9c;
+  color: #555;
+  box-shadow: none;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: right;
+}
+/* 运费规则页面*/
+.add-region .iconfont {
+  vertical-align: middle; }
+
+.regional-table p {
+  margin: 0; }
+.regional-table .operation {
+  text-align: right; }
+  .regional-table .operation a {
+    margin: 0 3px; }
+.regional-table td {
+  vertical-align: middle !important; }
+
+/* 运费规则--区域弹窗*/
+/* 地域选择样式*/
+.regional-choice {
+  display: none; }
+
+.layui-layer {
+  z-index: 2000; }
+
+.layui-layer-content .regional-choice {
+  display: block !important; }
+
+.checkbtn a {
+  font-size: 1.4rem;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer; }
+
+.fr {
+  float: right; }
+
+.clearfloat {
+  zoom: 1; }
+  .clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0; }
+
+.place-div label {
+  font-weight: 400;
+  font-size: 1.4rem; }
+.place-div input[type=checkbox] {
+  margin-right: .3rem; }
+.place-div > div {
+  width: 100%;
+  padding: 10px 30px; }
+.place-div .checkbtn {
+  background-color: #fbfbfb;
+  text-align: right; }
+  .place-div .checkbtn img {
+    height: 10px;
+    margin-left: 3px; }
+  .place-div .checkbtn .ri {
+    border-right: none; }
+  .place-div .checkbtn a {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    width: 60px;
+    text-align: center; }
+.place-div .smallplace .ratio {
+  color: red; }
+.place-div .smallplace label {
+  padding-right: 10px;
+  text-align: left;
+  width: auto;
+  float: left;
+  cursor: pointer; }
+.place-div .smallplace .citys {
+  width: auto;
+  background-color: #fff;
+  position: absolute;
+  top: 35px;
+  border: 1px solid #ccc;
+  z-index: 100;
+  visibility: hidden; }
+  .place-div .smallplace .citys > i.jt {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #ccc;
+    position: absolute;
+    top: -10px;
+    left: 20px; }
+    .place-div .smallplace .citys > i.jt i {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 10px solid #fff;
+      position: absolute;
+      top: 2px;
+      left: -8px; }
+  .place-div .smallplace .citys .row-div {
+    min-width: 250px;
+    padding: 10px;
+    box-sizing: border-box; }
+    .place-div .smallplace .citys .row-div label span {
+      max-width: 175px;
+      white-space: nowrap;
+      vertical-align: middle;
+      font-size: 1.4rem; }
+.place-div .smallplace .place-tooltips:hover .citys {
+  visibility: visible; }
+.place-div .smallplace p {
+  float: left;
+  width: auto;
+  margin: 2px 0; }
+.place-div .smallplace > div {
+  float: left;
+  width: 170px;
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  position: relative; }
+
+.show-place-div {
+  margin-left: 85px;
+  font-size: 15px; }
+  .show-place-div .smallplace label {
+    min-width: 105px;
+    width: auto; }
+  .show-place-div .smallplace input {
+    margin-left: 0; }
+  .show-place-div .smallplace .citys .row-div p {
+    margin: 5px 0 10px 0; }

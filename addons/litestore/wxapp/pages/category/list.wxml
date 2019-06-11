@@ -1,0 +1,30 @@
+<ad unit-id="adunit-e37cc7cd439a78ba"></ad>
+<van-tabbar active="{{ active }}" fixed="{{false}}" bind:change="onChange">
+  <van-tabbar-item icon="other-pay">综合</van-tabbar-item>
+  <van-tabbar-item icon="gift-card-pay" info="hot" >销量</van-tabbar-item>
+  <van-tabbar-item icon="balance-pay" info="低">价格</van-tabbar-item>
+</van-tabbar>
+
+<scroll-view wx:if="{{!noList}}" bindscrolltolower="bindgetdata" scroll-y="true" style="height: {{scrollHeight}}px; width: 100%;" >
+  <navigator class="card-root-c" wx:for="{{list}}" wx:for-item="item" wx:for-index="idx" wx:key="ccit" url="../goods/index?goods_id={{item.id}}">
+    <van-card custom-class="van-card-root-c" 
+      price="¥{{item.goods_min_price}}"
+      origin-price="销量:{{item.goods_sales}}"
+      currency=""
+      title="{{item.goods_name}}"
+      centered="{{true}}"
+      lazy-load="{{true}}"
+      title-class="card-t-c"
+      price-class="card-p-c"
+      origin-price-class="card-op-c"
+      thumb="{{item.image}}" />
+  </navigator>
+  <view hidden="{{!no_more}}" class="no-more">没有更多商品了</view>
+</scroll-view>
+
+<view wx:if="{{noList && !list.length}}" class="liteshop-notcont" style="margin-top:130px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../res/imgs/no-data.png"></image>
+    </view>
+    <text class="cont">没有相关商品</text>
+  </view>

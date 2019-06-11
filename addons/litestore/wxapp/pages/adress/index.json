@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "地址管理",
+  "usingComponents": {
+    "van-swipe-cell": "/res/vant/swipe-cell/index",
+    "van-cell": "/res/vant/cell/index",
+    "van-cell-group": "/res/vant/cell-group/index",
+    "van-tag": "/res/vant/tag/index",
+    "van-toast": "/res/vant/toast/index"
+  }
+}

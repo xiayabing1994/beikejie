@@ -1,0 +1,44 @@
+@import "res/vant/common/index.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+page {
+  background-color: #f8f8f8;
+  font-size: 14px;
+}
+
+.title-footer {
+  position: relative;
+  z-index: 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+  color: #6d189e;
+  text-align: center;
+  margin: 0 18rpx 0;
+}
+.title-footer .cont {
+  background: white;
+  padding: 0 12rpx;
+  font-size: 22rpx;
+  z-index: 10;
+  text-align:center;
+}
+.title-footer .hr {
+  background: #6d189e;
+  height: 2rpx;
+  border: 0;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  margin-top: 1px;
+  z-index: -1;
+}

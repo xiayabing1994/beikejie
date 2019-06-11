@@ -1,0 +1,40 @@
+<view class="p-bottom">
+
+  <view class="card-root-c" wx:for="{{goods_list}}" wx:key="this" wx:for-index="idx">
+  <!-- 这里商品出问题的遮罩层 -->
+  <view wx:if="{{item.show_error != 0}}" class="goods_err_div">{{item.show_error_text}}</view>
+
+      <van-card custom-class="van-card-root-c {{ item.show_error == 0 ? '' : 'error_goods'}}" thumb-link="../goods/index?goods_id={{item.goods_id}}" 
+        price="{{item.goods_price}}" num="{{item.total_num}}" title="{{item.goods_name}}"
+        desc="{{item.goods_sku.goods_attr ? item.goods_sku.goods_attr :'默认规格'}}" 
+        centered="{{true}}" lazy-load="{{true}}" title-class="card-t-c" price-class="card-p-c" thumb="{{item.goods_sku.spec_image==''? item.image:item.goods_sku.img_show}}">
+      </van-card>
+  </view>
+
+  <!-- 这里是总计 和 邮费 -->
+  <van-cell-group custom-class="vcg-c">
+    <van-cell title="商品数总计：" value="{{order_total_num}}" />
+    <van-cell title="商品价格总计：" value-class="pric-cell" value="￥{{order_total_price}}" />
+    <van-cell title="快递费用：" value-class="pric-cell" value="{{express_price==0 ? '免邮费或未查询到运费' : '＋ ￥' + express_price}}" />
+  </van-cell-group>
+
+</view>
+
+<van-submit-bar
+  price="{{order_pay_price*100}}"
+  button-text="提交订单"
+  bind:submit="onClicktjButton"
+  tip="{{ true }}"
+>
+  <van-tag size="large" custom-class="tagadress" color="{{wxapp.BackgroundColor}}" bindtap="TapAdress">管理地址</van-tag>
+  <view slot="tip" wx:if="{{address}}" >
+    <van-icon custom-class='ico-ad' name="logistics"/> {{address.Area.province}}{{address.Area.city}}{{address.Area.region}} - {{address.detail}}<text>\n\r</text>
+    <van-icon custom-class='lianxirentip ico-ad' name="phone"/><text class='lianxirentip'> {{address.name}} : {{address.phone}}</text>
+  </view>
+  <view slot="tip" wx:else >
+    <van-icon custom-class='ico-ad' name="logistics"/>未曾增加收货地址<text>\n\r</text>
+    <van-icon custom-class='lianxirentip ico-ad' name="phone"/><text class='lianxirentip'>请点击管理地址增加</text>
+  </view>
+</van-submit-bar>
+
+  <van-toast id="van-toast" />
