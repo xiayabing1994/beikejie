@@ -61,6 +61,10 @@ class Cart extends Api
         $this->model->delete($goods_id, $goods_sku_id);
         return $this->success();
     }
+    public function clear(){
+        $this->model->clearAll();
+        return $this->success('清空成功');
+    }
 
 }
 

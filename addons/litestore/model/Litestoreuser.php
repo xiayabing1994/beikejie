@@ -7,5 +7,6 @@ use app\common\model\User;
 
 class Litestoreuser extends User
 {
+    protected  $name='user';
 
 }

@@ -5,7 +5,7 @@ namespace app\api\controller;
 use app\common\controller\Api;
 use app\common\library\Sms as Smslib;
 use app\common\model\User;
-
+use think\Hook;
 /**
  * 手机短信接口
  */
@@ -22,6 +22,9 @@ class Sms extends Api
      */
     public function send()
     {
+        Hook::add('sms_send',function($sms){
+            return true;
+        });
         $mobile = $this->request->request("mobile");
         $event = $this->request->request("event");
         $event = $event ? $event : 'register';

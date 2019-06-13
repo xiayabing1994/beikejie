@@ -15,7 +15,10 @@ class Goods extends Api
     {
         parent::_initialize();
     }
-
+    public function wholeGoodsList(){
+	    $goodsModel=new Wxlitestoregoods();
+        dump($goodsModel->getWholeList($this->auth->id));
+    }
 	public function detail()
     {
     	$goods_id = $this->request->request('goods_id');

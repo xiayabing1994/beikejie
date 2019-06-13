@@ -16,6 +16,9 @@ class Litestoregoodsspec extends Model
     protected $createTime = 'create_time';
     protected $updateTime = 'update_time';
 
+    public function getSkuList($goods_id){
+        return $this->where('goods_id','=',$goods_id)->select();
+    }
     /**
      * 批量添加商品sku记录
      * @param $goods_id

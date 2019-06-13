@@ -5,6 +5,7 @@ namespace app\api\controller;
 use app\common\controller\Api;
 use app\common\library\Ems;
 use app\common\library\Sms;
+use app\common\model\User as UserModel;
 use fast\Random;
 use think\Validate;
 
@@ -328,4 +329,32 @@ public function userinfo(){
             $this->error($this->auth->getError());
         }
     }
+    public function setDealPassword(){
+        $pass=$this->request->param('deal_password');
+        if(!is_numeric($pass) || strlen($pass)!=6 ){
+            $this->error('请设置格式为6位数交易密码');
+        }
+        $usermodel=new UserModel();
+        if($usermodel->where('id',$this->auth->id)->update(['deal_password'=>md5(md5($pass))])){
+           $this->success('设置密码成功');
+        }
+    }
+    public function checkDealPassword(){
+        $pass=$this->request->param('deal_password');
+        if(!is_numeric($pass) || strlen($pass)!=6 ){
+            $this->error('请输入格式为6位数交易密码',null,4);
+        }
+        $usermodel=new UserModel();
+        $userinfo=$usermodel->where(['id'=>$this->auth->id])->find();
+        if(empty($userinfo['deal_password'])){
+            $this->error('您还未设置交易密码',null,3);
+        }
+        $where=['id'=>$this->auth->id,'deal_password'=>md5(md5($pass))];
+        if($userinfo['deal_password']=md5(md5($pass))){
+            $this->success('交易密码正确');
+        }else{
+            $this->success('交易密码错误,请重新输入');
+        }
+    }
+
 }

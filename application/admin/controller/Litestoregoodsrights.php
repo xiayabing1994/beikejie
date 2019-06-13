@@ -155,6 +155,7 @@ class Litestoregoodsrights extends Backend
                         $validate = is_bool($this->modelValidate) ? ($this->modelSceneValidate ? $name . '.add' : true) : $this->modelValidate;
                         $this->model->validate($validate);
                     }
+                    $params['goods_type']='rights';
                     $result = $this->model->allowField(true)->save($params);
                     //\think\Log::write('hawk-1 result'.json_encode($result), \think\Log::NOTICE);
                     if ($result !== false) {

@@ -4,6 +4,10 @@ return array (
   'autoload' => false,
   'hooks' => 
   array (
+    'app_init' => 
+    array (
+      0 => 'epay',
+    ),
     'get_cfg' => 
     array (
       0 => 'litestore',

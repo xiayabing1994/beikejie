@@ -15,48 +15,59 @@ class Wxlitestoregoods extends Litestoregoods
     }
 
 	//这里是最新上架的8件商品
-	public function getNewList()
+	public function getNewList($page=1,$limit=8)
     {
         return $this->with(['spec', 'category'])
             ->where('is_delete', '=', 0)
             ->where('goods_status', '=', 10)
             ->order(['goods_id' => 'desc', 'goods_sort' => 'asc'])
-            ->limit(8)
+            ->page($page,$limit)
             ->select();
     }
 
     //这里是随机的8件商品
-    public function getRandom8()
+    public function getRandom8($page=1,$limit=8)
     {
         return $this->with(['spec', 'category'])
             ->where('is_delete', '=', 0)
             ->where('goods_status', '=', 10)
             ->orderRaw('rand()')
-            ->limit(8)
+            ->page($page,$limit)
             ->select();
     }
     //这里是热销的8件商品
-    public function getHot8()
+    public function getHot8($page=1,$limit=8)
     {
         return $this->with(['spec', 'category'])
             ->where('is_delete', '=', 0)
             ->where('goods_status', '=', 10)
             ->orderRaw('sales_actual')
-            ->limit(8)
+            ->page($page,$limit)
             ->select();
     }
     //
-    public function getTypeList($type)
+    public function getTypeList($type,$page=1,$limit=8)
     {
         return $this->with(['spec', 'category'])
             ->where('is_delete', '=', 0)
             ->where('goods_status', '=', 10)
             ->where('goods_type','=',$type)
             ->orderRaw('sales_actual')
-            ->limit(8)
+            ->page($page,$limit)
             ->select();
     }
-
+   public  function getWholeList($userid,$page=1,$limit=8){
+        $queryFunc=function ($query){
+            $query->name('litestore_wholesale')->where('w_period','NEQ','pass')->field('goods_id');
+        };
+       return $this->with(['spec'])
+           ->where('is_delete', '=', 0)
+           ->where('provider','=',$userid)
+           ->where('goods_id','IN',$queryFunc)
+           ->orderRaw('sales_actual')
+           ->page($page,$limit)
+           ->select();
+   }
     public static function detail($goods_id)
     {
         $dataout = self::get($goods_id, ['category', 'spec', 'specRel', 'freight']);

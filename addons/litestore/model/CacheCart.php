@@ -83,9 +83,22 @@ class CacheCart
             }
             // 商品单价
             $goods['goods_price'] = $goods['goods_sku']['goods_price'];
+            $goods['goods_score'] = $goods['goods_sku']['goods_score'];
+            $goods['goods_quota'] = $goods['goods_sku']['goods_quota'];
+            if($goods['goods_type']=='wholesale'){
+                $user_quota=Litestoreuser::get($user_id)['quota'];
+                $discount=Litestorediscount::where('goods_id','=',$cart['goods_id'])
+                    ->where('goods_quota','<=',$user_quota)
+                    ->order('goods_quota','desc')
+                    ->find();
+                $discount= !$discount ? 5 : $discount['goods_discount'];   //根据用户配额获取折扣
+                $goods['goods_price']=$goods['goods_price']*$discount/10;
+            }
             // 商品总价
             $goods['total_num'] = $cart['goods_num'];
             $goods['total_price'] = $total_price = bcmul($goods['goods_price'], $cart['goods_num'], 2);
+            $goods['total_score'] = $totalScore = bcmul($goods['goods_score'], $cart['goods_num'], 2);
+            $goods['total_quota'] = $totalQuota = bcmul($goods['goods_quota'], $cart['goods_num'], 2);
             // 商品总重量
             $goods['goods_total_weight'] = bcmul($goods['goods_sku']['goods_weight'], $cart['goods_num'], 2);
             // 验证用户收货地址是否存在运费规则中
@@ -101,6 +114,8 @@ class CacheCart
         }
         // 商品总金额
         $orderTotalPrice = array_sum(array_column($cartList, 'total_price'));
+        $orderTotalScore = array_sum(array_column($cartList, 'total_score'));
+        $orderTotalQuota = array_sum(array_column($cartList, 'total_quota'));
         // 所有商品的运费金额
         $allExpressPrice = array_column($cartList, 'express_price');
         // 订单总运费金额
@@ -116,6 +131,8 @@ class CacheCart
             'intra_region' => $intraRegion,         // 当前用户收货城市是否存在配送规则中
             'has_error' => $this->hasError(),
             'error_msg' => $this->getError(),
+            'total_score'=>round($orderTotalScore, 2),
+            'total_quota'=>round($orderTotalQuota, 2),
         ];
     }
 
