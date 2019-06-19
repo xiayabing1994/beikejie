@@ -25,6 +25,10 @@ class Adress extends Api
 
     public function add()
     {
+        $mobile=$this->request->post('phone');
+        if (!$mobile || !\think\Validate::regex($mobile, "/^[1][3,4,5,7,8,9][0-9]{9}$/")) {
+            $this->error(__('手机号不正确'));
+        }
         if ($this->model->add($this->user_id, $this->request->post())) {
             return $this->success('添加成功');
         }

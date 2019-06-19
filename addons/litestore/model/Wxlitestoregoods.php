@@ -7,11 +7,23 @@ use app\admin\model\Litestoregoods;
 
 class Wxlitestoregoods extends Litestoregoods
 {
-    protected $append = ['goods_sales'];
+    protected $append = ['goods_sales','images_url','images_arr'];
     
     public function getGoodsSalesAttr($value, $data)
     {
         return $data['sales_initial'] + $data['sales_actual'];
+    }
+    public function getImagesUrlAttr($value, $data)
+    {
+        return  cdnurl(explode(",",$data['images'])[0], true);
+    }
+    public function getImagesArrAttr($value, $data)
+    {
+        $images=explode(",",$data['images']);
+        foreach($images as $k=>$v){
+            $images[$k]=cdnurl($v,true);
+        }
+        return $images;
     }
 
 	//这里是最新上架的8件商品
@@ -46,12 +58,17 @@ class Wxlitestoregoods extends Litestoregoods
             ->select();
     }
     //
-    public function getTypeList($type,$page=1,$limit=8)
+    public function getTypeList($type,$page=1,$limit=8,$keywords,$cate_id)
     {
+        $where=[
+            'goods_type'=>$type,
+            'goods_status'=>10,
+            'is_delete'=>0,
+        ];
+        if($keywords!='') $where['goods_name']=['like',"%$keywords%"];
+        if($cate_id!=0) $where['category_id']=$cate_id;
         return $this->with(['spec', 'category'])
-            ->where('is_delete', '=', 0)
-            ->where('goods_status', '=', 10)
-            ->where('goods_type','=',$type)
+            ->where($where)
             ->orderRaw('sales_actual')
             ->page($page,$limit)
             ->select();
@@ -60,13 +77,18 @@ class Wxlitestoregoods extends Litestoregoods
         $queryFunc=function ($query){
             $query->name('litestore_wholesale')->where('w_period','NEQ','pass')->field('goods_id');
         };
-       return $this->with(['spec'])
+       $res=$this->with(['spec','wholesale'])
            ->where('is_delete', '=', 0)
            ->where('provider','=',$userid)
            ->where('goods_id','IN',$queryFunc)
-           ->orderRaw('sales_actual')
+           ->orderRaw('goods_id desc')
            ->page($page,$limit)
            ->select();
+       foreach($res as $k=>$v){
+           $res[$k]['image'] = cdnurl(explode(",",$v['images'])[0], true);
+           $res[$k]['orderinfo']=Litestoreordergoods::get($v['wholesale']['order_goods_id']);
+       }
+       return $res;
    }
     public static function detail($goods_id)
     {

@@ -101,9 +101,17 @@ class Litestoregoods extends Model
      */
     public function spec()
     {
-        return $this->hasMany('Litestoregoodsspec','goods_id','goods_id');
+        $spec=$this->hasMany('Litestoregoodsspec','goods_id','goods_id');
+        return $spec;
     }
 
+    /**
+     * 批发信息表
+     */
+    public function wholesale()
+    {
+        return $this->hasOne('Litestorewholesale','goods_id','goods_id');
+    }
     /**
      * 关联商品规格关系表
      */

@@ -26,6 +26,7 @@ return array (
     'shop' => '商城配置',
     'dictionary' => 'Dictionary',
     'user' => 'User',
+    'money' => '资金配置',
   ),
   'mail_type' => '1',
   'mail_smtp_host' => 'smtp.qq.com',
@@ -38,4 +39,5 @@ return array (
   'goods_quota_rate' => '20',
   'goodssale_money_rate' => '80',
   'goodssale_score_rate' => '5',
+  'user_cash_percent' => '0.6',
 );

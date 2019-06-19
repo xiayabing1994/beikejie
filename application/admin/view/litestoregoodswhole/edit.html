@@ -153,6 +153,42 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配额/折扣:</label>
+        <div class="col-xs-12 col-sm-8">
+            <table>
+                <thead>
+                <th>配额</th>
+                <th>折扣</th>
+                <th></th>
+                </thead>
+                <tbody>
+                {for start='0' end='5'}
+                <tr>
+                    <td><input type="number" name="row[quota][]" value="{$row.goods_discount[0][$i]|default=0}"></td>
+                    <td><input type="number" name="row[discount][]" value="{$row.goods_discount[1][$i]|default=0}"></td>
+                </tr>
+                {/for}
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="{$row.quota[1]|default=0}"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="{$row.discount[1]|default=0}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="{$row.quota[2]|default=0}"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="{$row.discount[2]|default=0}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="{$row.quota[3]|default=0}"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="{$row.discount[3]|default=0}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="{$row.quota[4]|default=0}"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="{$row.discount[4]|default=0}"></td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
         <div class="col-xs-12 col-sm-8">
             <textarea id="c-content" data-rule="required" class="form-control editor form-control" rows="5" name="row[content]" cols="50">{$row.content}</textarea>

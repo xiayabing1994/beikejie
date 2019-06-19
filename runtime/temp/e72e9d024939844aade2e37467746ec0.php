@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:81:"/www/wwwroot/beike/public/../application/admin/view/litestoregoodswhole/edit.html";i:1559744802;s:61:"/www/wwwroot/beike/application/admin/view/layout/default.html";i:1557482264;s:58:"/www/wwwroot/beike/application/admin/view/common/meta.html";i:1557482264;s:80:"/www/wwwroot/beike/application/admin/view/litestoregoods/spec_many_template.html";i:1559744802;s:60:"/www/wwwroot/beike/application/admin/view/common/script.html";i:1557482264;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:81:"/www/wwwroot/beike/public/../application/admin/view/litestoregoodswhole/edit.html";i:1560920391;s:61:"/www/wwwroot/beike/application/admin/view/layout/default.html";i:1557482264;s:58:"/www/wwwroot/beike/application/admin/view/common/meta.html";i:1557482264;s:80:"/www/wwwroot/beike/application/admin/view/litestoregoods/spec_many_template.html";i:1559744802;s:60:"/www/wwwroot/beike/application/admin/view/common/script.html";i:1557482264;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -202,6 +202,42 @@
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </select>
 
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配额/折扣:</label>
+        <div class="col-xs-12 col-sm-8">
+            <table>
+                <thead>
+                <th>配额</th>
+                <th>折扣</th>
+                <th></th>
+                </thead>
+                <tbody>
+                <?php $__FOR_START_994782148__=0;$__FOR_END_994782148__=5;for($i=$__FOR_START_994782148__;$i < $__FOR_END_994782148__;$i+=1){ ?>
+                <tr>
+                    <td><input type="number" name="row[quota][]" value="<?php echo (isset($row['goods_discount'][0][$i]) && ($row['goods_discount'][0][$i] !== '')?$row['goods_discount'][0][$i]:0); ?>"></td>
+                    <td><input type="number" name="row[discount][]" value="<?php echo (isset($row['goods_discount'][1][$i]) && ($row['goods_discount'][1][$i] !== '')?$row['goods_discount'][1][$i]:0); ?>"></td>
+                </tr>
+                <?php } ?>
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="<?php echo (isset($row['quota'][1]) && ($row['quota'][1] !== '')?$row['quota'][1]:0); ?>"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="<?php echo (isset($row['discount'][1]) && ($row['discount'][1] !== '')?$row['discount'][1]:0); ?>"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="<?php echo (isset($row['quota'][2]) && ($row['quota'][2] !== '')?$row['quota'][2]:0); ?>"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="<?php echo (isset($row['discount'][2]) && ($row['discount'][2] !== '')?$row['discount'][2]:0); ?>"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="<?php echo (isset($row['quota'][3]) && ($row['quota'][3] !== '')?$row['quota'][3]:0); ?>"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="<?php echo (isset($row['discount'][3]) && ($row['discount'][3] !== '')?$row['discount'][3]:0); ?>"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><input type="number" name="row[quota][]" value="<?php echo (isset($row['quota'][4]) && ($row['quota'][4] !== '')?$row['quota'][4]:0); ?>"></td>-->
+<!--                    <td><input type="number" name="row[discount][]" value="<?php echo (isset($row['discount'][4]) && ($row['discount'][4] !== '')?$row['discount'][4]:0); ?>"></td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="form-group">

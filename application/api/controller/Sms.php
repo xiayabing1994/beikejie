@@ -29,7 +29,7 @@ class Sms extends Api
         $event = $this->request->request("event");
         $event = $event ? $event : 'register';
 
-        if (!$mobile || !\think\Validate::regex($mobile, "^1\d{10}$")) {
+        if (!$mobile || !\think\Validate::regex($mobile, "/^[1][3,4,5,7,8,9][0-9]{9}$/")) {
             $this->error(__('手机号不正确'));
         }
         $last = Smslib::get($mobile, $event);

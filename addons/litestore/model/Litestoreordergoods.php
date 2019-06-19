@@ -28,5 +28,8 @@ class Litestoreordergoods extends Model
     {
         return $this->belongsTo('Litestoregoodsspec','spec_sku_id','spec_sku_id');
     }
+    public function getImagesAttr($value){
+        return cdnurl(explode(',',$value)[0],true);
+    }
     
 }

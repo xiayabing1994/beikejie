@@ -19,7 +19,7 @@ class Litestorefreight extends Model
     
     // 追加属性
     protected $append = [
-        'method_text'
+        'method_text','freightprice'
     ];
     
 
@@ -49,7 +49,10 @@ class Litestorefreight extends Model
     {
         return $this->hasMany('Litestorefreightrule');
     }
-
+    public function freightprice()
+    {
+        return $this->hasMany('Litestorefreightrule')->field('first,first_fee,additional,additional_fee,region');
+    }
     public function createDeliveryRule($data)
     {
         $save = [];

@@ -14,7 +14,7 @@ use think\Validate;
  */
 class User extends Api
 {
-    protected $noNeedLogin = ['login', 'mobilelogin', 'mregister','register', 'resetpwd', 'changeemail', 'changemobile', 'third'];
+    protected $noNeedLogin = ['login', 'mobilelogin', 'mregister','register', 'resetpwd', 'changeemail', 'changemobile', 'third','forget_pwd'];
     protected $noNeedRight = '*';
 
     public function _initialize()
@@ -52,7 +52,9 @@ class User extends Api
         }
     }
 public function userinfo(){
-    $this->success(__('获取信息成功'), $this->auth->getUserinfo());
+        $userinfo=$this->auth->getUserinfo();
+        $userinfo['avatar']=cdnurl($userinfo['avatar'],true);
+    $this->success(__('获取信息成功'), $userinfo);
 }
     /**
      * 手机验证码登录
@@ -125,13 +127,14 @@ public function userinfo(){
         $password = $this->request->request('password');
         $email = $this->request->request('email');
         $mobile = $this->request->request('mobile');
+        $rec_mobile = $this->request->request('rec_mobile');
         if (!$mobile || !$password) {
             $this->error(__('Invalid parameters'));
         }
         if ($mobile && !Validate::regex($mobile, "^1\d{10}$")) {
             $this->error(__('Mobile is incorrect'));
         }
-        $ret = $this->auth->register($mobile, $password, $email, $mobile, []);
+        $ret = $this->auth->register($mobile, $password, $email, $mobile, ['rec_mobile' => $rec_mobile]);
         if ($ret) {
             $data = ['userinfo' => $this->auth->getUserinfo()];
             $this->success(__('Sign up successful'), $data);
@@ -331,13 +334,14 @@ public function userinfo(){
     }
     public function setDealPassword(){
         $pass=$this->request->param('deal_password');
-        if(!is_numeric($pass) || strlen($pass)!=6 ){
-            $this->error('请设置格式为6位数交易密码');
+        $oldpass=$this->request->param('old_deal_password');
+        $userinfo=$this->auth->getUser();
+        if($userinfo['deal_password']!=md5(md5($oldpass))){
+            $this->error('原交易密码错误,请重新输入');
         }
         $usermodel=new UserModel();
-        if($usermodel->where('id',$this->auth->id)->update(['deal_password'=>md5(md5($pass))])){
-           $this->success('设置密码成功');
-        }
+        $userinfo->save(['deal_password'=>md5(md5($pass))]);
+       $this->success('设置密码成功');
     }
     public function checkDealPassword(){
         $pass=$this->request->param('deal_password');
@@ -356,5 +360,96 @@ public function userinfo(){
             $this->success('交易密码错误,请重新输入');
         }
     }
+
+    /**
+     * 忘记密码 noNeedLogin
+     */
+    public function forget_pwd()
+    {
+        $mobile=$this->request->param('mobile');
+        $captcha=$this->request->param('captcha');
+        $newPwd=$this->request->param('newpwd');
+        if(empty($mobile) || empty($captcha) || empty($newPwd))
+            $this->error(__('Invalid parameters'));
+
+        $user = UserModel::get(['mobile' => $mobile]);
+
+        if(empty($user)) $this->error('用户不存在');
+
+        if(!Sms::check($mobile, $captcha, 'forget_pwd'))
+            $this->error(__('Captcha is incorrect'));
+
+        $user->save(['password' => $this->auth->getEncryptPassword($newPwd, $user['salt'])]);
+
+        $this->success(__('设置成功'));
+    }
+
+
+    /**
+     * 重置密码 需要登录
+     */
+    public function reset_pwd()
+    {
+        $newPwd=$this->request->param('newpwd');
+        $oldPwd=$this->request->param('oldpwd');
+        if(empty($newPwd) || empty($oldPwd))
+            $this->error(__('Invalid parameters'));
+
+        $user = $this->auth->getUser();
+
+        if($user['password'] != $this->auth->getEncryptPassword($oldPwd, $user['salt']))
+            $this->error('原始密码错误');
+
+        $user->save(['password' => $this->auth->getEncryptPassword($newPwd, $user['salt'])]);
+
+        $this->success(__('修改成功'));
+    }
+// 下级粉丝 需要登录
+    public function fanslist($page = 1)
+    {
+        $user = $this->auth->getUser();
+
+        $data = [];
+        if($user['pid'])
+            $data['pmobile'] = UserModel::get($user['pid'])->getAttr('mobile');
+        else
+            $data['pmobile'] = '无';
+
+        $data['list'] = UserModel::field('id, mobile, createtime, identy')
+            ->where('pid', $user['id'])->order('id desc')
+            ->page($page, 10)
+            ->select();
+
+        $data['fans_num'] = UserModel::where('pid', $user['id'])->order('id desc')->count();
+        $data['identy'] = ['customer' => '消费者', 'business' => '消费商'];
+
+        $this->success('', $data);
+    }
+
+// 我的分享码 需要登录
+    public function qrcode()
+    {
+        $user = $this->auth->getUserinfo();
+
+        $path_qr = ROOT_PATH . 'public/uploads/qrcode/';
+        if(!is_dir($path_qr)) {
+            dump($path_qr);
+            mkdir($path_qr, 0755, true, true);
+        }
+
+        $qrcode = $path_qr . $user['id'] . '.png';
+        if(!file_exists($qrcode)) {
+            $errorCorrectionLevel = "H";
+            $matrixPointSize = "8";
+
+            new \qrstr();
+            $url = $this->request->domain() . '/api/h5/register/rec_mobile/' . $user['mobile']; //二维码内容
+            \QRcode::png($url, $qrcode, $errorCorrectionLevel, $matrixPointSize);
+        }
+
+        $img = $this->request->domain() . '/uploads/qrcode/' . $user['id'] . '.png';
+        $this->success('', $img);
+    }
+
 
 }

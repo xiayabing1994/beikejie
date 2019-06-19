@@ -101,11 +101,17 @@ class Litestoreorder extends Model
         return true;
     }
 
-    public function getList($user_id){
+    public function getList($user_id,$status,$page,$limit){
+        if(!empty($status)){
+            if($status=='recieve') $where=['freight_status'=>20,'receipt_status'=>10,'order_status'=>10];     //待收货
+            if($status=='deliver') $where=['pay_status'=>20,'freight_status'=>10,'order_status'=>10];         //待发货
+            if($status=='complete') $where['order_status']=30;                               //已完成
+        }
+        $where['user_id']=$user_id;
         return $this->with(['goods'])
-            ->where('user_id', '=', $user_id)
-            ->where('order_status', '<>', '20')
-            ->order(['createtime' => 'desc'])->limit(50)
+            ->where($where)
+            ->order(['createtime' => 'desc'])
+            ->page($page,$limit)
             ->select();
     }
 
@@ -140,8 +146,10 @@ class Litestoreorder extends Model
         $Card = new CacheCart($user_id);
         $Card->clearAll();
     }
+    private function getDiscount($quota,$data){
 
-    public function getBuyNow($user_id, $goods_id, $goods_num, $goods_sku_id,$goods_type='activity')
+    }
+    public function getBuyNow($user_id, $goods_id, $goods_num, $goods_sku_id,$quota,$discount)
     {
         // 商品信息
         $goods = Wxlitestoregoods::detail($goods_id);
@@ -165,12 +173,7 @@ class Litestoreorder extends Model
         $goods['goods_score'] = $goods['goods_sku']['goods_score'];
         $goods['goods_quota'] = $goods['goods_sku']['goods_quota'];
         if($goods['goods_type']=='wholesale'){
-            $user_quota=Litestoreuser::get($user_id)['quota'];
-            $discount=Litestorediscount::where('goods_id','=',$goods_id)
-                ->where('goods_quota','<=',$user_quota)
-                ->order('goods_quota','desc')
-                ->find();
-            $discount= !$discount ? 5 : $discount['goods_discount'];   //根据用户配额获取折扣
+            $goods['goods_quota'] = $quota;
             $goods['goods_price']=$goods['goods_price']*$discount/10;
         }
 
@@ -194,6 +197,9 @@ class Litestoreorder extends Model
         // 计算配送费用
         $expressPrice = $intraRegion ?
             $goods['freight']->calcTotalFee($goods_num, $goods_total_weight, $cityId) : 0;
+        if($goods['goods_type']=='score'){
+            $expressPrice=0;
+        }
         return [
             'goods_list' => [$goods],               // 商品详情
             'order_total_num' => $goods_num,        // 商品总数量
@@ -209,7 +215,7 @@ class Litestoreorder extends Model
             'total_quota'=>$totalQuota,
         ];
     }
-    public function getBuyNowWhole($user_id, $goods_id, $goods_num, $goods_sku_id)
+    public function getBuyNowWhole($user_id, $goods_id, $goods_num, $goods_sku_id,$quota,$discount)
     {
         // 商品信息
         $goods = Wxlitestoregoods::detail($goods_id);
@@ -231,19 +237,20 @@ class Litestoreorder extends Model
         // 商品单价
         $goods['goods_price'] = $goods['goods_sku']['goods_price'];
         $goods['goods_score'] = $goods['goods_sku']['goods_score'];
-        $goods['goods_quota'] = $goods['goods_sku']['goods_quota'];
-        $user_quota=Litestoreuser::get($user_id)['quota'];
-        $discount=Litestorediscount::where('goods_id','=',$goods_id)
-            ->where('goods_quota','<=',$user_quota)
-            ->order('goods_quota','desc')
-            ->find();
-        $discount= !$discount ? 5 : $discount['goods_discount'];   //根据用户配额获取折扣
+        $goods['goods_quota'] = $quota;
+//        $discount=Litestorediscount::where('goods_id','=',$goods_id)
+//            ->where('goods_quota','<=',$user_quota)
+//            ->order('goods_quota','desc')
+//            ->find();
+//        $discount= !$discount ? 5 : $discount['goods_discount'];   //根据用户配额获取折扣
         $goods['goods_price']=$goods['goods_price']*$discount/10;
         // 商品总价
         $goods['total_num'] = $goods_num;
         $goods['total_price'] = $totalPrice = bcmul($goods['goods_price'], $goods_num, 2);
         $goods['total_score'] = $totalScore = bcmul($goods['goods_score'], $goods_num, 2);
         $goods['total_quota'] = $totalQuota = bcmul($goods['goods_quota'], $goods_num, 2);
+        $user_quota=Litestoreuser::get($user_id)['quota'];
+        if($user_quota<$goods['total_quota']) $this->setError('配额不足');
         // 商品总重量
         $goods_total_weight = bcmul($goods['goods_sku']['goods_weight'], $goods_num, 2);
         // 当前用户收货城市id
@@ -289,69 +296,77 @@ class Litestoreorder extends Model
             return false;
         }
         Db::startTrans();
-        // 记录订单信息
-        $this->save([
-            'user_id' => $user_id,
-            'order_no' => $this->orderNo(),
-            'total_price' => $order['order_total_price'],
-            'pay_price' => $order['order_pay_price'],
-            'express_price' => $order['express_price'],
-        ]);
-        // 订单商品列表
-        $goodsList = [];
-        // 更新商品库存 (下单减库存)
-        $deductStockData = [];
-        foreach ($order['goods_list'] as $goods) {
-        if($goods['goods_type']=='wholesale' && $userinfo['identy']=='customer'){
-            $this->error='您还不是消费商,请到活动专区消费';
-            return false;
-        }
-            /* @var Goods $goods */
-            $goodsList[] = [
+        try{
+            // 记录订单信息
+            $this->save([
                 'user_id' => $user_id,
-                'goods_id' => $goods['goods_id'],
-                'goods_name' => $goods['goods_name'],
-                'images' => $goods['images'],
-                'deduct_stock_type' => $goods['deduct_stock_type'],
-                'spec_type' => $goods['spec_type'],
-                'spec_sku_id' => $goods['goods_sku']['spec_sku_id'],
-                'goods_spec_id' => $goods['goods_sku']['goods_spec_id'],
-                'goods_attr' => $goods['goods_sku']['goods_attr'],
-                'content' => $goods['content'],
-                'goods_no' => $goods['goods_sku']['goods_no'],
-                'goods_price' => $goods['goods_sku']['goods_price'],
-                'goods_score' => $goods['goods_sku']['goods_score'],
-                'goods_quota' => $goods['goods_sku']['goods_quota'],
-                'line_price' => $goods['goods_sku']['line_price'],
-                'goods_weight' => $goods['goods_sku']['goods_weight'],
-                'total_num' => $goods['total_num'],
-                'total_price' => $goods['total_price'],
-                'total_score' => $goods['total_score'],
-                'total_quota' => $goods['total_quota'],
-                'goods_type'  =>$goods['goods_type'],
-            ];
-            // 下单减库存
-            $goods['deduct_stock_type'] === '10' && $deductStockData[] = [
-                'goods_spec_id' => $goods['goods_sku']['goods_spec_id'],
-                'stock_num' => ['dec', $goods['total_num']]
-            ];
+                'order_no' => $this->orderNo(),
+                'total_price' => $order['order_total_price'],
+                'pay_price' => $order['order_pay_price'],
+                'express_price' => $order['express_price'],
+            ]);
+
+            // 订单商品列表
+            $goodsList = [];
+            // 更新商品库存 (下单减库存)
+            $deductStockData = [];
+            foreach ($order['goods_list'] as $goods) {
+                if($goods['goods_type']=='wholesale' && $userinfo['identy']=='customer'){
+                    $this->error='您还不是消费商,请到活动专区消费';
+                    return false;
+                }
+                /* @var Goods $goods */
+                $goodsList[] = [
+                    'user_id' => $user_id,
+                    'goods_id' => $goods['goods_id'],
+                    'goods_name' => $goods['goods_name'],
+                    'images' => $goods['images'],
+                    'deduct_stock_type' => $goods['deduct_stock_type'],
+                    'spec_type' => $goods['spec_type'],
+                    'spec_sku_id' => $goods['goods_sku']['spec_sku_id'],
+                    'goods_spec_id' => $goods['goods_sku']['goods_spec_id'],
+                    'goods_attr' => $goods['goods_sku']['goods_attr'],
+                    'content' => $goods['content'],
+                    'goods_no' => $goods['goods_sku']['goods_no'],
+                    'goods_price' => $goods['goods_sku']['goods_price'],
+                    'goods_score' => $goods['goods_sku']['goods_score'],
+                    'goods_quota' => $goods['goods_sku']['goods_quota'],
+                    'line_price' => $goods['goods_sku']['line_price'],
+                    'goods_weight' => $goods['goods_sku']['goods_weight'],
+                    'total_num' => $goods['total_num'],
+                    'total_price' => $goods['total_price'],
+                    'total_score' => $goods['total_score'],
+                    'total_quota' => $goods['total_quota'],
+                    'goods_type'  =>$goods['goods_type'],
+                    'is_fetch'=>$goods['goods_type']=='wholesale' ? 0 : 1,
+                ];
+                // 下单减库存
+                $goods['deduct_stock_type'] === '10' && $deductStockData[] = [
+                    'goods_spec_id' => $goods['goods_sku']['goods_spec_id'],
+                    'stock_num' => ['dec', $goods['total_num']]
+                ];
+            }
+            // 保存订单商品信息
+            $this->goods()->saveAll($goodsList);
+            // 更新商品库存
+            !empty($deductStockData) && (new Litestoregoodsspec)->isUpdate()->saveAll($deductStockData);
+            // 记录收货地址
+            $this->address()->save([
+                'user_id' => $user_id,
+                'name' => $order['address']['name'],
+                'phone' => $order['address']['phone'],
+                'province_id' => $order['address']['province_id'],
+                'city_id' => $order['address']['city_id'],
+                'region_id' => $order['address']['region_id'],
+                'detail' => $order['address']['detail'],
+            ]);
+            Db::commit();
+            return true;
+        }catch (Exception $e){
+            dump($e->getMessage());
+            Db::rollback();
         }
-        // 保存订单商品信息
-        $this->goods()->saveAll($goodsList);
-        // 更新商品库存
-        !empty($deductStockData) && (new Litestoregoodsspec)->isUpdate()->saveAll($deductStockData);
-        // 记录收货地址
-        $this->address()->save([
-            'user_id' => $user_id,
-            'name' => $order['address']['name'],
-            'phone' => $order['address']['phone'],
-            'province_id' => $order['address']['province_id'],
-            'city_id' => $order['address']['city_id'],
-            'region_id' => $order['address']['region_id'],
-            'detail' => $order['address']['detail'],
-        ]);
-        Db::commit();
-        return true;
+
     }
     
     public function getPayStatusList()
@@ -450,7 +465,7 @@ class Litestoreorder extends Model
 
     public function goods()
     {
-        return $this->hasMany('Litestoreordergoods','order_id', 'id');
+        return $this->hasMany('Litestoreordergoods','order_id', 'id')->where('is_fetch',0);
     }
 
     public function address()

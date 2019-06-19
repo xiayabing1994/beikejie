@@ -40,6 +40,12 @@ class Common extends Api
         }
     }
 
+    public function uploadAvatar(){
+        \think\Hook::add('upload_after',function($data){
+            $this->auth->getUser()->save(['avatar'=>$data['url']]);
+        });
+        $this->upload();
+    }
     /**
      * 上传文件
      * @ApiMethod (POST)

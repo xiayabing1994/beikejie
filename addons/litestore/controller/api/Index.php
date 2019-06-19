@@ -68,9 +68,11 @@ class Index extends Api
     public function goodslist(){
         $page=$this->request->param('page',1);
         $limit=$this->request->param('limit',8);
+        $keywords=$this->request->param('keywords','');
+        $cate_id=$this->request->param('cate_id','');
         $Temp_litestoregoods = new Wxlitestoregoods();
 	    $type=$this->request->request('type','activity');
-        $typeList = $Temp_litestoregoods->getTypeList($type,$page,$limit);
+        $typeList = $Temp_litestoregoods->getTypeList($type,$page,$limit,$keywords,$cate_id);
         foreach ($typeList as $index => $item) {
             $typeList[$index]['ImageFrist'] = cdnurl(explode(",",$item['images'])[0], true);
         }

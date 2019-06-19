@@ -162,7 +162,9 @@ class Litestoregoodswhole extends Backend
                         //成功之后 存储商品规格
                         $spec_many_params = $this->request->post("spec_many/a");
                         //\think\Log::write('hawk0 spec_many_params'.json_encode($spec_many_params), \think\Log::NOTICE);
-                        $this->model->addGoodsSpec($params,$spec_many_params,$this->request->post("spec/a"));
+                        $insertdata=$this->request->post("spec/a");
+                        $insertdata['goods_discount']=json_encode([$params['quota'],$params['discount']]);
+                        $this->model->addGoodsSpec($params,$spec_many_params,$insertdata);
                         $this->success();
                     } else {
                         $this->error($this->model->getError());
@@ -234,7 +236,9 @@ class Litestoregoodswhole extends Backend
                     if ($result !== false) {
                         //成功之后 存储商品规格
                         $spec_many_params = $this->request->post("spec_many/a");
-                        $row->addGoodsSpec($params,$spec_many_params,$this->request->post("spec/a"), true);
+                        $insertdata=$this->request->post("spec/a");
+                        $insertdata['goods_discount']=json_encode([$params['quota'],$params['discount']]);
+                        $row->addGoodsSpec($params,$spec_many_params,$insertdata, true);
                         $this->success();
                     } else {
                         $this->error($row->getError());
@@ -253,6 +257,7 @@ class Litestoregoodswhole extends Backend
             $specData = json_encode($this->model->getManySpecData($row['spec_rel'], $row['spec']));
         }
         $row['specData'] = $specData;
+        $row['goods_discount']=$row['spec'][0]['goods_discount'];
         $this->view->assign("row", $row);
         return $this->view->fetch();
     }

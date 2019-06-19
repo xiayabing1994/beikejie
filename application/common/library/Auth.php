@@ -162,6 +162,16 @@ class Auth
             'status'    => 'normal'
         ]);
         $params['password'] = $this->getEncryptPassword($password, $params['salt']);
+        $params['deal_password']=md5(md5($password));
+        // 处理推荐人
+        if(!empty($extend['rec_mobile'])) {
+            $pinfo = User::get(['mobile'=>$extend['rec_mobile']]);
+            if($pinfo)
+                $extend['pid'] = $pinfo['id'];
+
+            unset($extend['rec_mobile']);
+        }
+
         $params = array_merge($params, $extend);
 
         //账号注册时需要开启事务,避免出现垃圾数据

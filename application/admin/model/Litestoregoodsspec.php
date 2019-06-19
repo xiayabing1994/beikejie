@@ -15,7 +15,9 @@ class Litestoregoodsspec extends Model
     // 定义时间戳字段名
     protected $createTime = 'create_time';
     protected $updateTime = 'update_time';
-
+   protected $append=[
+       'discount'
+   ];
     /**
      * 批量添加商品sku记录
      * @param $goods_id
@@ -33,6 +35,12 @@ class Litestoregoodsspec extends Model
             ]);
         }
         return $this->saveAll($data);
+    }
+    public function getDiscountAttr($value,$data){
+        return empty($data['goods_discount']) ? [] : json_decode($data['goods_discount']);
+    }
+    public function getGoodsDiscountAttr($value){
+        return empty($value) ? [] : json_decode($value);
     }
 
     /**

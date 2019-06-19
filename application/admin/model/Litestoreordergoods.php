@@ -28,5 +28,5 @@ class Litestoreordergoods extends Model
     {
         return $this->belongsTo('Litestoregoodsspec','spec_sku_id','spec_sku_id');
     }
-    
+
 }

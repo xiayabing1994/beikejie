@@ -29,6 +29,9 @@ class Litestorecategory extends Model
             $row->getQuery()->where($pk, $row[$pk])->update(['weigh' => $row[$pk]]);
         });
     }
+    public function getImageAttr($value){
+        return cdnurl($value,true);
+    }
 
     
 
