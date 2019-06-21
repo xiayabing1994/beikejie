@@ -1,5 +1,6 @@
 <?php
 namespace app\api\controller;
+use app\admin\model\Litestoregoodsspec;
 use think\Db;
 use \addons\litestore\model\Wxlitestoregoods;
 use \app\admin\model\Litestorewholesale;
@@ -14,38 +15,46 @@ class Crontab{
         $this->_whole=new Litestorewholesale();
     }
     public function endCurrentPeroid(){
+        $currinfo=Litestorewholesale::where('w_period','=','curr')->where('end','>',0)->find();
+        if($currinfo['end']>time()) return '暂未结束';
         Db::startTrans();
-        $goods_arr=$this->_whole
-            ->where('w_period','curr')
-            ->field('goods_id,user_id,order_id')
-            ->select();
-        foreach($goods_arr as $goods){
-            //下架商品
-            $this->_goods->where('goods_id',$goods['goods_id'])->update(['goods_status'=>20]);
-            $goodsinfo=$this->_goods->detail($goods['goods_id'])->toArray();
-            foreach($goodsinfo['spec'] as $specitem){
-                //返还余额与配额
-                if($specitem['stock_num']>0) {
-                    $where=['order_id'=>$goods['order_id'],'goods_id'=>$goods['goods_id'],'goods_spec_id'=>$specitem['goods_spec_id']];
-                    $ordergoods=Litestoreordergoods::where($where)->find();
-                    User::money($specitem['stock_num']*$ordergoods['goods_price'],$goods['user_id'],'未售出商品返还余额');
-                    User::quota($specitem['stock_num']*$ordergoods['goods_quota'],$goods['user_id'],'未售出商品返还配额');
+        try{
+            $goods_arr=$this->_whole
+                ->where('w_period','curr')
+                ->field('goods_id,user_id,order_id')
+                ->select();
+            foreach($goods_arr as $goods){
+                //下架商品
+                $this->_goods->where('goods_id',$goods['goods_id'])->update(['goods_status'=>20]);
+                $goodsinfo=$this->_goods->detail($goods['goods_id'])->toArray();
+                foreach($goodsinfo['spec'] as $specitem){
+                    //返还余额与配额
+                    if($specitem['stock_num']>0) {
+                        $where=['order_id'=>$goods['order_id'],'goods_id'=>$goods['goods_id'],'goods_spec_id'=>$specitem['goods_spec_id']];
+                        $ordergoods=Litestoreordergoods::where($where)->find();
+                        User::money($specitem['stock_num']*$ordergoods['goods_price'],$goods['user_id'],'未售出商品返还余额');
+                        User::quota($specitem['stock_num']*$ordergoods['goods_quota'],$goods['user_id'],'未售出商品返还配额');
+                    }
                 }
             }
+            //本期结束
+        $this->_whole->where('w_period','curr')->update(['w_period'=>'pass']);
+            //下期开始
+        $this->_whole->where(['w_period'=>'next'])->update(['w_period'=>'curr']);
+            //上架商品
+
+            $goodsidlist=Litestorewholesale::where(['w_period' => 'curr', 'goods_status' => 'onsale'])
+                ->field('goods_id')->select();
+            foreach($goodsidlist as $v){
+                $this->_goods->where('goods_id','=',$v['goods_id'])->update(['goods_status'=>10,'updatetime'=>time()]);
+
+            }
+            Db::commit();
+        }catch(\Exception $e){
+            Db::rollback();
+            return $e->getMessage();
         }
-        //本期结束
-//        $this->_whole->where('w_period','curr')->update(['w_period'=>'pass']);
-        //下期开始
-//        $this->_whole->where(['w_period'=>'next','goods_status'=>'onsale'])->update(['w_period'=>'curr','start'=>time(),'end'=>time()+86400*5]);
-        //上架商品
-        $queryFunc=function($query) {
-            $query->name('wholesale')
-                ->where(['w_period' => 'current', 'goods_status' => 'onsale'])
-                ->field('goods_id')
-                ->select();
-        };
-        $this->goods->where('goods_id','IN',$queryFunc)->update(['goods_tsatus'=>10]);
-        Db::commit();
+
 
         //1.更改wholesale所有当前期记录peroid为pass
         //2.更改当前期中所有商品状态为下架状态

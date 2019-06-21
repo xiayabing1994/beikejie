@@ -296,11 +296,12 @@ class Litestoreorder extends Model
             return false;
         }
         Db::startTrans();
+        $orderno=$this->orderNo();
         try{
             // 记录订单信息
             $this->save([
                 'user_id' => $user_id,
-                'order_no' => $this->orderNo(),
+                'order_no' => $orderno,
                 'total_price' => $order['order_total_price'],
                 'pay_price' => $order['order_pay_price'],
                 'express_price' => $order['express_price'],
@@ -361,7 +362,7 @@ class Litestoreorder extends Model
                 'detail' => $order['address']['detail'],
             ]);
             Db::commit();
-            return true;
+            return $orderno;
         }catch (Exception $e){
             dump($e->getMessage());
             Db::rollback();
@@ -465,7 +466,7 @@ class Litestoreorder extends Model
 
     public function goods()
     {
-        return $this->hasMany('Litestoreordergoods','order_id', 'id')->where('is_fetch',0);
+        return $this->hasMany('Litestoreordergoods','order_id', 'id');
     }
 
     public function address()

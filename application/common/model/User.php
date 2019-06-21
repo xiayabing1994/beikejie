@@ -41,10 +41,10 @@ class User extends Model
     {
         if (!$value) {
             //如果不需要启用首字母头像，请使用
-            //$value = '/assets/img/avatar.png';
-            $value = letter_avatar($data['nickname']);
+            $value = '/assets/img/avatar.png';
+//            $value = letter_avatar($data['nickname']);
         }
-        return $value;
+        return cdnurl($value,true);
     }
 
     /**
@@ -146,5 +146,19 @@ class User extends Model
             }
         }
         return $level;
+    }
+    //推荐新人增加积分
+    public static function  fansAddscore($userid){
+        if(!$userid) return;
+        $money_config=load_config('shop');
+        self::score($money_config['distribute_score_give'],$userid,'推荐新人赠送积分');
+    }
+    public static function shopAddScore($userid,$money){
+        $pid=self::get($userid)['pid'];
+        if($pid>0){
+            $money_config=load_config('shop');
+            self::score($money_config['distribute_score_rate']/100*$money,$pid,'粉丝购物赠送积分');
+
+        }
     }
 }

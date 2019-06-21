@@ -40,4 +40,7 @@ return array (
   'goodssale_money_rate' => '80',
   'goodssale_score_rate' => '5',
   'user_cash_percent' => '0.6',
+  'distribute_score_rate' => '5',
+  'distribute_score_give' => '100',
+  'sales_last_days' => '5',
 );

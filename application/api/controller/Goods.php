@@ -23,7 +23,7 @@ class Goods extends Api
     }
 
     /**
-     * 挂售商品上架
+     * 挂售商品撤销
      */
     public function goodsCancel(){
         $goods_id=$this->request->param('goods_id');
@@ -73,5 +73,9 @@ class Goods extends Api
         if($goodsinfo['w_period']=='curr') Litestoregoods::where('goods_id',$goods_id)->update(['goods_status'=>10]);
         $specModel->where(['goods_id'=>$goods_id,'spec_sku_id'=>$goods_sku_id])->update(['goods_price'=>$price]);
         return $this->success('修改价格成功');
+    }
+    public function getCurrentTime(){
+        $info=Litestorewholesale::where(['w_period'=>'curr','end'=>['>',0]])->find();
+        $this->success('当期时间',['start'=>date('Y-m-d H:i:s',$info['start']),'end'=>date('Y-m-d H:i:s',$info['end'])]);
     }
 }

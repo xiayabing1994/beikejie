@@ -50,7 +50,6 @@ class Sms
     public static function send($mobile, $code = null, $event = 'default')
     {
         $code = is_null($code) ? mt_rand(1000, 9999) : $code;
-        $code=1234;
         $time = time();
         $ip = request()->ip();
         $sms = \app\common\model\Sms::create(['event' => $event, 'mobile' => $mobile, 'code' => $code, 'ip' => $ip, 'createtime' => $time]);
@@ -91,7 +90,7 @@ class Sms
      */
     public static function check($mobile, $code, $event = 'default')
     {
-        return true;
+//        return true;
         $time = time() - self::$expire;
         $sms = \app\common\model\Sms::where(['mobile' => $mobile, 'event' => $event])
             ->order('id', 'DESC')

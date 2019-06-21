@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分享注册</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            background-color:#010D33;
+        }
+
+        @media only screen and (max-width:320px) {
+
+            html,
+            body {
+                font-size: 10px !important
+            }
+        }
+
+        @media only screen and (min-width:320px) {
+
+            html,
+            body {
+                font-size: 10px !important
+            }
+        }
+
+        @media only screen and (min-width:360px) {
+
+            html,
+            body {
+                font-size: 12px !important
+            }
+        }
+
+        @media only screen and (min-width:375px) {
+
+            html,
+            body {
+                font-size: 12.72px !important
+            }
+        }
+
+        @media only screen and (min-width:384px) {
+
+            html,
+            body {
+                font-size: 13px !important
+            }
+        }
+
+        @media only screen and (min-width:400px) {
+
+            html,
+            body {
+                font-size: 13.5px !important
+            }
+        }
+
+        @media only screen and (min-width:414px) {
+
+            html,
+            body {
+                font-size: 13.6px !important
+            }
+        }
+
+        @media only screen and (min-width:480px) {
+
+            html,
+            body {
+                font-size: 16px !important
+            }
+        }
+
+        @media only screen and (min-width:540px) {
+
+            html,
+            body {
+                font-size: 18px !important
+            }
+        }
+
+        @media only screen and (min-width:560px) {
+
+            html,
+            body {
+                font-size: 19px !important
+            }
+        }
+
+        @media only screen and (min-width:640px) {
+
+            html,
+            body {
+                font-size: 22px !important
+            }
+        }
+
+        @media only screen and (min-width:720px) {
+
+            html,
+            body {
+                font-size: 25px !important
+            }
+        }
+
+        @media only screen and (min-width:750px) {
+
+            html,
+            body {
+                font-size: 26px !important
+            }
+        }
+
+        /* 注册 register_page */
+        .register_page {
+            height: calc(100vh - 50px);
+        }
+
+        .register_page .rp_p_message {
+            position: relative;
+            top: -0.2rem;
+        }
+
+        .register_page .lp_btns {
+            margin-top: 2rem;
+            margin-bottom: -4rem;
+        }
+
+        .input_transparent {
+            background: transparent !important;
+            border: none !important;
+            /* color: #fff  !important; */
+        }
+
+        .rp_p_input {
+            border-bottom: 1px solid #ccc;
+            /* border: 1px solid #fff; */
+            padding: 0.3rem 2rem;
+            /* border-radius: 5rem; */
+            padding: 1rem 2rem;
+        }
+
+        .bg_theme {
+            background-color: #fff;
+        }
+
+        .bar-header {
+            background: #000;
+        }
+
+        .ion-header-bar {
+            height: 50px;
+            line-height: 50px;
+            background-color: #e61439;
+        }
+
+        .bar .title {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+            margin: 0 10px;
+            min-width: 30px;
+            height: 43px;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 44px;
+        }
+
+        .flex_row_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex_row_left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .borderRadius1rem {
+            border-radius: 1rem;
+        }
+
+        .color_white {
+            /*color: #fff;*/
+        }
+
+        .title {
+            text-align: center;
+            color: #FFF;
+            FONT-SIZE: 1.3rem;
+        }
+
+        .rp_p_input span {
+            width: 6rem;
+            min-width: 6rem;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        input[type="text"] {
+            display: block;
+            padding-top: 2px;
+            padding-left: 0;
+            height: 34px;
+            /*color: #fff;*/
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        .rp_p_message {
+            font-size: 1rem;
+            min-width: 7rem;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background-color: #e61439;
+        }
+
+        .common_submit_btn {
+            width: 90%;
+            height: 2.8rem;
+            background: #e61439;
+            line-height: 2.8rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin: 2.5rem auto 0;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .send {
+            display: none;
+        }
+        .send.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mall_user_modifyPay  header_default mall">
+    <div class="bg_theme ion-header-bar">
+        <div class="title color_white">注册</div>
+    </div>
+    <div class="register_page changeLoginPsd_page bg_theme  overflow_h ">
+        <div class="  borderRadius1rem">
+            <div class="rp_p_input flex_row_left    ">
+                <span class="color_white">推荐人</span>
+                <input class="input_transparent flex_grow1" id="reccode" value="{$pinfo.mobile|default=''}" type="text" placeholder="请输入推荐人手机号">
+            </div>
+            <div class="rp_p_input flex_row_left    ">
+                <span class="color_white">+86</span>
+                <input class="input_transparent flex_grow1" type="text" id="tel" placeholder="请输入手机号">
+            </div>
+            <div class="rp_p_input flex_row_left    " style="padding-right: 1rem;">
+                <span class="color_white">验证码</span>
+                <input class="input_transparent flex_grow1" style="width: 60%;" id="yzcode" type="text" placeholder="请输入验证码">
+                <div class="rp_p_message  bg_theme2 color_white bg_theme borderRadius1rem send show" id='sendCode'  onclick="getSmsCaptcha()" style="color: #fff;">获取验证码</div>
+                <div class="rp_p_message  bg_theme2 color_white bg_theme borderRadius1rem send" id="waitSend" style="color: #fff;"><span id='second'>60</span>秒后再发送</div>
+            </div>
+            <div class="rp_p_input flex_row_left">
+                <span class="color_white">登录密码</span>
+                <input class="input_transparent flex_grow1" id="pass" type="text" placeholder="请设置登录密码">
+                <input type="hidden" name="pid" id="pid" value="{$pinfo.id|default=''}">
+            </div>
+            <div class="rp_p_input flex_row_left">
+                <span class="color_white">确认密码</span>
+                <input class="input_transparent flex_grow1" id="repass" type="text" placeholder="请确认登录密码">
+            </div>
+        </div>
+
+        <div class="common_submit_btn" onclick="submit()">注册</div>
+    </div>
+</div>
+</body>
+<script src='/assets/libs/art-template/test/js/jquery-1.7.2.min.js'></script>
+<script>
+    var reg = {
+        mobile: "",
+        mobileCode: "",
+        pictureCaptcha: "",
+        password:'',
+        pwd: '60',
+        number: 60,
+    };
+    //发送验证后倒计时
+    function countDown() {
+        $('#sendCode').removeClass("show");
+        $('#waitSend').addClass('show');
+        reg.number = 60;
+        var timer = setInterval(function() {
+            if (reg.number <= 1) {
+                clearInterval(timer);
+                $('#waitSend').removeClass("show");
+                $('#sendCode').addClass('show');
+                reg.number = 60;
+            } else {
+                reg.number--;
+            }
+            $('#second').html( reg.number)
+        }, 1000);
+    };
+    //获取图片验证码
+    var pictureCaptchaUrl = 'http://....auth/getCode';
+    // 获取短信验证码
+    function getSmsCaptcha(){
+        reg.mobile = $('#tel').val();
+        if (!reg.mobile) {
+            alert("请输入正确的手机号");
+            return;
+        }
+        // 发送请求   参数是reg.mobile,请求返回后执行  countdown函数
+        $.ajax({
+            url:"{:url('/api/sms/send')}",
+            data:{mobile:reg.mobile,event:'register'},
+            type:'get',
+            dataType:'json',
+            success:function(res){
+                alert(res.msg);
+                if(res.code == 1){
+                    countDown();
+                }
+            }
+        })
+    }
+    // 提交表单
+    function submit() {
+        reg.mobile = $('#tel').val();
+        reg.captcha = $('#yzcode').val();
+        //reg.pictureCaptcha = $('#imgcode').val();
+        reg.password = $('#pass').val();
+        reg.rec_mobile = $('#reccode').val();
+        repass = $('#repass').val();
+        if (!reg.mobile) {
+            alert("请输入正确的手机号");
+            return;
+        }
+        if (!reg.captcha) {
+            alert("请输入短信验证码");
+            return;
+        }
+        // if (!reg.pictureCaptcha) {
+        //     alert("请输入图片验证码");
+        //     return;
+        // }
+        if (!reg.password) {
+            alert("请输入登陆密码");
+            return;
+        }
+        if (!repass) {
+            alert("请输入确认登陆密码");
+            return;
+        }
+        if (repass != reg.password) {
+            alert("确认密码不一致");
+            return;
+        }
+        // 发送请求   参数在reg对象里
+        $.ajax({
+            url:"{:url('user/mregister')}",
+            data:reg,
+            type:'post',
+            dataType:'json',
+            success:function(res){
+                console.log(res)
+                if(res.code == 1){
+                    alert('注册成功');
+                    // location.href = '{}';
+                    location.reload();
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    };
+
+
+
+</script>
+</html>

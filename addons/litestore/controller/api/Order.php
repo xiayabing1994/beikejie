@@ -107,8 +107,7 @@ class Order extends Api
 
 
 
-        if ($this->model->order_add($this->user_id, $order)) {
-
+        if ($orderno=$this->model->order_add($this->user_id, $order)) {
             if($order['order_total_price']==0){
 
                 foreach($order['goods_list'] as $goods) {
@@ -116,7 +115,8 @@ class Order extends Api
                     $this->self_deal_score($goods);
 
                 }
-
+                $order = $this->model->payDetail($orderno);
+                $order->updatePayStatus($orderno);
                 return $this->success('积分购买成功');
 
             }
@@ -560,7 +560,6 @@ class Order extends Api
         }
 
 
-
         foreach($order['goods'] as $ordergoods){
 
             $ordergoods['order_no']=$order['order_no'];
@@ -598,6 +597,7 @@ class Order extends Api
             $usermodel->score($order['total_price']*$shopconfig['goods_score_rate']/100,$order['user_id'],'购物返现积分');
 
             $usermodel->quota($order['total_price']*$shopconfig['goods_score_rate']/100,$order['user_id'],'购物返现配额');
+            $usermodel->shopAddScore($order['user_id'],$order['total_price']); //处理分销积分
 
             $usermodel->where('id',$order['user_id'])->update(['identy'=>'business']);
 
@@ -629,6 +629,7 @@ class Order extends Api
 
     public function deal_wholesale($goodsitem,$order_no = ''){
 
+
         //goods表添加数据         删除id,goods_type,设置provider=order下userid
 
         //goods_spec表添加数据    删除goods_spec_id,goods_sales  设置stock_num=order下total_num,goods_id为新记录id
@@ -657,9 +658,7 @@ class Order extends Api
             $goodsModel=new Wxlitestoregoods;
             $goodsModel->allowField(true)->save($newgoods);
             $newgoodsid =$goodsModel->goods_id;
-
-                        //goods表操作结束
-
+            //goods表操作结束
             $specList=$specModel->where('goods_id',$goodsitem['goods_id'])->select();
 
             foreach($specList as $spec){
@@ -692,8 +691,20 @@ class Order extends Api
 
             }                                           //goods_spec_rel操作结束
 
-            $start=db('litestore_wholesale')->where('w_period','curr')->find()['end'];
-
+            $currrow=db('litestore_wholesale')->where('w_period','curr')->find();
+            $nextrow=db('litestore_wholesale')->where('w_period','next')->find();
+            $days=load_config('shop')['sales_last_days'];
+            $start=time();
+            if(!empty($currrow)){
+                $start=$currrow['end'];
+                $end=$start+$days*86400;
+            } elseif(!empty($nextrow)){
+                $start=$nextrow['start'];
+                $end=$nextrow['end'];
+            }else{
+                $start=time();
+                $end=$start+$days*86400;
+            }
             db('litestore_wholesale')->insert([
 
                 'goods_id'=>$newgoodsid,
@@ -708,7 +719,7 @@ class Order extends Api
 
                 'start'=>$start,
 
-                'end'=>$start+5*86400,
+                'end'=>$end,
 
             ]);                                         //wholesale批发表添加记录成功
             User::quota(0-$goodsitem['total_quota'],$goodsitem['user_id'],'批发专区商品消费扣除');
@@ -756,7 +767,7 @@ class Order extends Api
 
     public function self_deal_score($ordergoods){
 
-        //扣除用户quota即可
+        //扣除用户积分即可
 
         $usermodel=new \app\common\model\User();
 

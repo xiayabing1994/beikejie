@@ -21,6 +21,8 @@
 							  <td>{$item.goods_attr}</td>
 							  <td>{$item.goods_price}元</td>
 							  <td>数量:{$item.total_num}</td>
+							  <td><span class="label label-success">{$item.is_fetch==1 ? '可发货' : '未提货不可发货'}</span></td>
+
 							</tr>
 				        {/foreach}
 					  </table>
@@ -40,7 +42,7 @@
 							{/if}
 						</div>
 						<div class="col-md-4 padding">
-							<span class="label label-danger">{:__('Pay_price')}</span> : 
+							<span class="label label-danger">{:__('Pay_price')}</span> :
 							{$vo.pay_price}
 						</div>
 					</div>

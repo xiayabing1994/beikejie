@@ -124,6 +124,10 @@ public function userinfo(){
 }
     public function mregister()
     {
+        \think\Hook::add('user_register_successed',function($user){
+            //处理积分返还
+            UserModel::fansAddScore($user['pid']);
+        });
         $password = $this->request->request('password');
         $email = $this->request->request('email');
         $mobile = $this->request->request('mobile');
@@ -415,7 +419,7 @@ public function userinfo(){
         else
             $data['pmobile'] = '无';
 
-        $data['list'] = UserModel::field('id, mobile, createtime, identy')
+        $data['list'] = UserModel::field('id, mobile, createtime, identy,avatar')
             ->where('pid', $user['id'])->order('id desc')
             ->page($page, 10)
             ->select();

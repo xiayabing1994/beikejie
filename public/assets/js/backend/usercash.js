@@ -46,11 +46,15 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                                     name: 'ajax',
                                     text: __('确认打款'),
                                     title: __('确认打款'),
-                                    classname: 'btn btn-xs btn-primary btn-dialog',
+                                    classname: 'btn btn-xs btn-primary btn-ajax',
                                     icon: 'fa fa-blind',
-                                    url: 'usercash/remit/id/{ids}',
-                                    callback: function (data) {
-                                        Layer.alert("接收到回传数据：" + JSON.stringify(data), {title: "回传数据"});
+                                    confirm:'确认打款吗？',
+                                    url: 'usercash/remit/ids/{ids}',
+                                    success: function (data,ret) {
+                                        console.log(data,ret);
+                                        // Layer.alert(ret.msg + ",返回数据：" + JSON.stringify(data));
+                                        //如果需要阻止成功提示，则必须使用return false;
+                                        //return false;
                                     },
                                     visible: function (row) {
                                         //返回true时按钮显示,返回false隐藏
