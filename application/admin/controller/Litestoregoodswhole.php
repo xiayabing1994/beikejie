@@ -85,6 +85,9 @@ class Litestoregoodswhole extends Backend
 
             return json($result);
         }
+        $wholeModel=model('Litestorewholesale');
+        $wholeinfo=$wholeModel->getPeriodInfo();
+        $this->view->assign('wholeinfo',$wholeinfo);
         return $this->view->fetch();
     }
 

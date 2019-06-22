@@ -20,6 +20,11 @@
                             </ul>
                         </div>
                     </div>
+                    <div id="toolbar2" class="toolbar">
+                        <h4>当期时间：{$wholeinfo.curr.start} -- {$wholeinfo.curr.end}</h4>
+                        <h4>下期时间：{$wholeinfo.next.start} -- {$wholeinfo.next.end}</h4>
+                        <h4>商品统计 往期：{$wholeinfo.total.pass} 当期：{$wholeinfo.total.curr} 下期：{$wholeinfo.total.next}</h4>
+                    </div>
                     <table id="table" class="table table-striped table-bordered table-hover table-nowrap"
                            data-operate-edit="{:$auth->check('litestoregoods/edit')}" 
                            data-operate-del="{:$auth->check('litestoregoods/del')}" 

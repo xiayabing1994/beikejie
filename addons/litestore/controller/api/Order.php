@@ -720,6 +720,8 @@ class Order extends Api
                 'start'=>$start,
 
                 'end'=>$end,
+              'createtime'=>time(),
+
 
             ]);                                         //wholesale批发表添加记录成功
             User::quota(0-$goodsitem['total_quota'],$goodsitem['user_id'],'批发专区商品消费扣除');

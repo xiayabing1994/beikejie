@@ -24,9 +24,9 @@ class Crontab{
                 ->field('goods_id,user_id,order_id')
                 ->select();
             foreach($goods_arr as $goods){
-                //下架商品
+                //1.下架商品
                 $this->_goods->where('goods_id',$goods['goods_id'])->update(['goods_status'=>20]);
-                $goodsinfo=$this->_goods->detail($goods['goods_id'])->toArray();
+                $goodsinfo=$this->_goods->detail($goods['goods_id']);
                 foreach($goodsinfo['spec'] as $specitem){
                     //返还余额与配额
                     if($specitem['stock_num']>0) {
@@ -37,11 +37,13 @@ class Crontab{
                     }
                 }
             }
-            //本期结束
+            //2.本期结束,批发商品下架
+        $currinfo=$this->_whole->where('w_period','curr')->where('start','>',0)->find();
+            $this->_goods->where('goods_type','=','wholesale')->where('creattime','<',$currinfo['end'])->update(['goods_status'=>20]);
         $this->_whole->where('w_period','curr')->update(['w_period'=>'pass']);
-            //下期开始
+            //3.下期开始
         $this->_whole->where(['w_period'=>'next'])->update(['w_period'=>'curr']);
-            //上架商品
+            //4.上架商品
 
             $goodsidlist=Litestorewholesale::where(['w_period' => 'curr', 'goods_status' => 'onsale'])
                 ->field('goods_id')->select();

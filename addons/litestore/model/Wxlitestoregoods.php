@@ -93,7 +93,7 @@ class Wxlitestoregoods extends Litestoregoods
     public static function detail($goods_id)
     {
         $dataout = self::get($goods_id, ['category', 'spec', 'specRel', 'freight']);
-        $dataout['image'] = cdnurl(explode(",",$dataout['images'])[0], true);
+      if(!empty($dataout)) $dataout['image'] = cdnurl(explode(",",$dataout['images'])[0], true);
         return $dataout;
     }
 
