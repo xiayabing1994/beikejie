@@ -702,7 +702,7 @@ class Order extends Api
                 $start=$nextrow['start'];
                 $end=$nextrow['end'];
             }else{
-                $start=time();
+                $start=load_config('period')['starttime'];
                 $end=$start+$days*86400;
             }
             db('litestore_wholesale')->insert([

@@ -15,8 +15,8 @@ class Crontab{
         $this->_whole=new Litestorewholesale();
     }
     public function endCurrentPeroid(){
-        $currinfo=Litestorewholesale::where('w_period','=','curr')->where('end','>',0)->find();
-        if($currinfo['end']>time()) return '暂未结束';
+        $currinfo=db('litestore_wholesale')->where('w_period','=','curr')->where('end','>',0)->find();
+        if($currinfo['end']>time()) return  '暂未结束';
         Db::startTrans();
         try{
             $goods_arr=$this->_whole
@@ -39,7 +39,7 @@ class Crontab{
             }
             //2.本期结束,批发商品下架
         $currinfo=$this->_whole->where('w_period','curr')->where('start','>',0)->find();
-            $this->_goods->where('goods_type','=','wholesale')->where('creattime','<',$currinfo['end'])->update(['goods_status'=>20]);
+            $this->_goods->where('goods_type','=','wholesale')->where('createtime','<',$currinfo['end'])->update(['goods_status'=>20]);
         $this->_whole->where('w_period','curr')->update(['w_period'=>'pass']);
             //3.下期开始
         $this->_whole->where(['w_period'=>'next'])->update(['w_period'=>'curr']);

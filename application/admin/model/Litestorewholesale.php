@@ -21,6 +21,11 @@ class Litestorewholesale extends Model
     protected $updateTime = '';
     public  function getPeriodInfo(){
         $currinfo=self::where('w_period','curr')->where('start','>',0)->find();
+        if(empty($currinfo)){
+            $last_days=load_config('shop')['sales_last_days'];
+            \app\common\model\Config::where('name','starttime')->update(['value'=>time()]);
+            \app\common\model\Config::where('name','endtime')->update(['value'=>time()+86400*$last_days]);
+        }
         $nextinfo=self::where('w_period','next')->where('start','>',0)->find();
         $totalinfo=$this->group('w_period')->field('count(*) as count,w_period')->select();
         foreach($totalinfo as $total){

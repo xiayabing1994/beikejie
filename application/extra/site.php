@@ -43,4 +43,5 @@ return array (
   'distribute_score_rate' => '5',
   'distribute_score_give' => '100',
   'sales_last_days' => '5',
+  'starttime' => '12',
 );

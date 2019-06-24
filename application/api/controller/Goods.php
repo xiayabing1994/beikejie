@@ -76,6 +76,13 @@ class Goods extends Api
     }
     public function getCurrentTime(){
         $info=Litestorewholesale::where(['w_period'=>'curr','end'=>['>',0]])->find();
+        if(empty($info)){
+            $shopconf=load_config('period');
+            $info=[
+                'start'=>$shopconf['starttime'],
+                'end'=>$shopconf['endtime']
+            ];
+        }
         $this->success('当期时间',['start'=>date('Y-m-d H:i:s',$info['start']),'end'=>date('Y-m-d H:i:s',$info['end'])]);
     }
 }
